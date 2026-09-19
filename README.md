@@ -28,7 +28,7 @@ retrains the same architecture on MIMIC-IV with a dataset-specific vocabulary.
 | `tests/` | Unit and contract tests |
 | `demo/` | De-identified patient-level demonstration artefacts (`eid_redacted: true`) |
 | `docs/` | Data access statement; further documentation to be added |
-| `supplementary/` | Placeholder for the full supplementary files |
+| `supplementary/` | Full supplementary material (DOCX) and supplementary tables (XLSX) for the manuscript |
 
 ---
 
