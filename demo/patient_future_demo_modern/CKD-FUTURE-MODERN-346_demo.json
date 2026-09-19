@@ -1,0 +1,1038 @@
+{
+  "case_id": "CKD-FUTURE-MODERN-346",
+  "model_id": "modern",
+  "model": "MedTrajectory modern baseline",
+  "split": "test",
+  "split_patient_index": 346,
+  "eid_redacted": true,
+  "num_events": "32",
+  "target_token": "diag:N18",
+  "target_token_id": 1574,
+  "target_disease": "Chronic kidney disease (N18)",
+  "baseline_age_years": 61.68377823408624,
+  "target_age_years": 61.700205338809035,
+  "target_gap_days": 6.0000000000005755,
+  "target_rank_among_diagnosis_tokens": 1,
+  "target_score": -4.952636241912842,
+  "target_in_top5_diagnosis": true,
+  "followup_years": 1.2840520191649603,
+  "first_hidden_event": {
+    "age_days": 22536,
+    "age_years": 61.700205338809035,
+    "token_id": 1574,
+    "token": "diag:N18",
+    "event_type": "diag",
+    "event_type_name": "诊断"
+  },
+  "visible_history": [
+    {
+      "age_days": 15377,
+      "age_years": 42.09993155373032,
+      "token_id": 1188,
+      "token": "diag:H65",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 15384,
+      "age_years": 42.119096509240244,
+      "token_id": 2980,
+      "token": "proc:E253",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 15986,
+      "age_years": 43.76728268309377,
+      "token_id": 2798,
+      "token": "proc:D151",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 15998,
+      "age_years": 43.800136892539356,
+      "token_id": 1202,
+      "token": "diag:H91",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 16692,
+      "age_years": 45.700205338809035,
+      "token_id": 1223,
+      "token": "diag:I25",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 16694,
+      "age_years": 45.7056810403833,
+      "token_id": 4666,
+      "token": "proc:K633",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 18920,
+      "age_years": 51.800136892539356,
+      "token_id": 1414,
+      "token": "diag:L02",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 18922,
+      "age_years": 51.80561259411362,
+      "token_id": 6420,
+      "token": "proc:S472",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 21878,
+      "age_years": 59.898699520876114,
+      "token_id": 1007,
+      "token": "diag:E86",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 21885,
+      "age_years": 59.917864476386036,
+      "token_id": 8413,
+      "token": "proc:X998",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22064,
+      "age_years": 60.407939767282684,
+      "token_id": 3932,
+      "token": "proc:H229",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22244,
+      "age_years": 60.90075290896646,
+      "token_id": 1219,
+      "token": "diag:I21",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 22256,
+      "age_years": 60.93360711841205,
+      "token_id": 4705,
+      "token": "proc:K752",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22418,
+      "age_years": 61.37713894592745,
+      "token_id": 7713,
+      "token": "proc:W365",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22426,
+      "age_years": 61.399041752224505,
+      "token_id": 918,
+      "token": "diag:D50",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 22482,
+      "age_years": 61.5523613963039,
+      "token_id": 8228,
+      "token": "proc:X403",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22485,
+      "age_years": 61.5605749486653,
+      "token_id": 4579,
+      "token": "proc:K491",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22499,
+      "age_years": 61.59890485968515,
+      "token_id": 1223,
+      "token": "diag:I25",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 22530,
+      "age_years": 61.68377823408624,
+      "token_id": 8234,
+      "token": "proc:X411",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    }
+  ],
+  "future_events": [
+    {
+      "age_days": 22536,
+      "age_years": 61.700205338809035,
+      "token_id": 1574,
+      "token": "diag:N18",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 22547,
+      "age_years": 61.73032169746749,
+      "token_id": 8235,
+      "token": "proc:X412",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22630,
+      "age_years": 61.95756331279945,
+      "token_id": 5082,
+      "token": "proc:L932",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22658,
+      "age_years": 62.03422313483915,
+      "token_id": 5000,
+      "token": "proc:L742",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22693,
+      "age_years": 62.130047912388775,
+      "token_id": 5005,
+      "token": "proc:L747",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22695,
+      "age_years": 62.13552361396304,
+      "token_id": 5001,
+      "token": "proc:L743",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22719,
+      "age_years": 62.20123203285421,
+      "token_id": 4667,
+      "token": "proc:K634",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22838,
+      "age_years": 62.52703627652293,
+      "token_id": 3160,
+      "token": "proc:E852",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22860,
+      "age_years": 62.587268993839835,
+      "token_id": 3159,
+      "token": "proc:E851",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22901,
+      "age_years": 62.69952087611225,
+      "token_id": 1276,
+      "token": "diag:I95",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 22901,
+      "age_years": 62.69952087611225,
+      "token_id": 1573,
+      "token": "diag:N17",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 22908,
+      "age_years": 62.718685831622174,
+      "token_id": 5069,
+      "token": "proc:L912",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22999,
+      "age_years": 62.9678302532512,
+      "token_id": 287,
+      "token": "death:E14",
+      "event_type": "death",
+      "event_type_name": "死亡登记"
+    }
+  ],
+  "all_events": [
+    {
+      "age_days": 15377,
+      "age_years": 42.09993155373032,
+      "token_id": 1188,
+      "token": "diag:H65",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 15384,
+      "age_years": 42.119096509240244,
+      "token_id": 2980,
+      "token": "proc:E253",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 15986,
+      "age_years": 43.76728268309377,
+      "token_id": 2798,
+      "token": "proc:D151",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 15998,
+      "age_years": 43.800136892539356,
+      "token_id": 1202,
+      "token": "diag:H91",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 16692,
+      "age_years": 45.700205338809035,
+      "token_id": 1223,
+      "token": "diag:I25",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 16694,
+      "age_years": 45.7056810403833,
+      "token_id": 4666,
+      "token": "proc:K633",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 18920,
+      "age_years": 51.800136892539356,
+      "token_id": 1414,
+      "token": "diag:L02",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 18922,
+      "age_years": 51.80561259411362,
+      "token_id": 6420,
+      "token": "proc:S472",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 21878,
+      "age_years": 59.898699520876114,
+      "token_id": 1007,
+      "token": "diag:E86",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 21885,
+      "age_years": 59.917864476386036,
+      "token_id": 8413,
+      "token": "proc:X998",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22064,
+      "age_years": 60.407939767282684,
+      "token_id": 3932,
+      "token": "proc:H229",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22244,
+      "age_years": 60.90075290896646,
+      "token_id": 1219,
+      "token": "diag:I21",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 22256,
+      "age_years": 60.93360711841205,
+      "token_id": 4705,
+      "token": "proc:K752",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22418,
+      "age_years": 61.37713894592745,
+      "token_id": 7713,
+      "token": "proc:W365",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22426,
+      "age_years": 61.399041752224505,
+      "token_id": 918,
+      "token": "diag:D50",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 22482,
+      "age_years": 61.5523613963039,
+      "token_id": 8228,
+      "token": "proc:X403",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22485,
+      "age_years": 61.5605749486653,
+      "token_id": 4579,
+      "token": "proc:K491",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22499,
+      "age_years": 61.59890485968515,
+      "token_id": 1223,
+      "token": "diag:I25",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 22530,
+      "age_years": 61.68377823408624,
+      "token_id": 8234,
+      "token": "proc:X411",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22536,
+      "age_years": 61.700205338809035,
+      "token_id": 1574,
+      "token": "diag:N18",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 22547,
+      "age_years": 61.73032169746749,
+      "token_id": 8235,
+      "token": "proc:X412",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22630,
+      "age_years": 61.95756331279945,
+      "token_id": 5082,
+      "token": "proc:L932",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22658,
+      "age_years": 62.03422313483915,
+      "token_id": 5000,
+      "token": "proc:L742",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22693,
+      "age_years": 62.130047912388775,
+      "token_id": 5005,
+      "token": "proc:L747",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22695,
+      "age_years": 62.13552361396304,
+      "token_id": 5001,
+      "token": "proc:L743",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22719,
+      "age_years": 62.20123203285421,
+      "token_id": 4667,
+      "token": "proc:K634",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22838,
+      "age_years": 62.52703627652293,
+      "token_id": 3160,
+      "token": "proc:E852",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22860,
+      "age_years": 62.587268993839835,
+      "token_id": 3159,
+      "token": "proc:E851",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22901,
+      "age_years": 62.69952087611225,
+      "token_id": 1276,
+      "token": "diag:I95",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 22901,
+      "age_years": 62.69952087611225,
+      "token_id": 1573,
+      "token": "diag:N17",
+      "event_type": "diag",
+      "event_type_name": "诊断"
+    },
+    {
+      "age_days": 22908,
+      "age_years": 62.718685831622174,
+      "token_id": 5069,
+      "token": "proc:L912",
+      "event_type": "proc",
+      "event_type_name": "手术/操作"
+    },
+    {
+      "age_days": 22999,
+      "age_years": 62.9678302532512,
+      "token_id": 287,
+      "token": "death:E14",
+      "event_type": "death",
+      "event_type_name": "死亡登记"
+    }
+  ],
+  "future_death_events": [
+    {
+      "age_days": 22999,
+      "age_years": 62.9678302532512,
+      "token_id": 287,
+      "token": "death:E14",
+      "event_type": "death",
+      "event_type_name": "死亡登记"
+    }
+  ],
+  "future_cancer_events": [],
+  "future_diagnosis_summary": "`diag:I95`, `diag:N17`, `diag:N18`",
+  "key_future_tokens": [
+    "diag:N18",
+    "death:E14"
+  ],
+  "top_diagnoses": [
+    {
+      "rank": 1,
+      "token_id": 1574,
+      "token": "diag:N18",
+      "event_type": "diag",
+      "score": -4.952636241912842,
+      "appeared_in_future": true,
+      "first_future_age_years": 61.700205338809035,
+      "years_after_baseline": 0.016427104722794184
+    },
+    {
+      "rank": 2,
+      "token_id": 1215,
+      "token": "diag:I12",
+      "event_type": "diag",
+      "score": -7.113216876983643,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 3,
+      "token_id": 1573,
+      "token": "diag:N17",
+      "event_type": "diag",
+      "score": -7.909683704376221,
+      "appeared_in_future": true,
+      "first_future_age_years": 62.69952087611225,
+      "years_after_baseline": 1.0157426420260123
+    },
+    {
+      "rank": 4,
+      "token_id": 1759,
+      "token": "diag:Q61",
+      "event_type": "diag",
+      "score": -8.266989707946777,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 5,
+      "token_id": 1008,
+      "token": "diag:E87",
+      "event_type": "diag",
+      "score": -8.770989418029785,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 6,
+      "token_id": 1004,
+      "token": "diag:E83",
+      "event_type": "diag",
+      "score": -8.952116012573242,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 7,
+      "token_id": 693,
+      "token": "diag:A41",
+      "event_type": "diag",
+      "score": -9.0353364944458,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 8,
+      "token_id": 1569,
+      "token": "diag:N13",
+      "event_type": "diag",
+      "score": -9.06888484954834,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 9,
+      "token_id": 959,
+      "token": "diag:E11",
+      "event_type": "diag",
+      "score": -9.071887016296387,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 10,
+      "token_id": 1243,
+      "token": "diag:I48",
+      "event_type": "diag",
+      "score": -9.105732917785645,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    }
+  ],
+  "top_selected_diseases": [
+    {
+      "disease_id": "chronic_kidney_disease",
+      "disease": "Chronic kidney disease (N18)",
+      "icd10": "N18",
+      "best_token": "diag:N18",
+      "score": -4.952636241912842,
+      "rank_among_diagnosis_tokens": 1,
+      "rank": 1,
+      "appeared_in_future": true,
+      "first_future_token": "diag:N18",
+      "first_future_age_years": 61.700205338809035,
+      "years_after_baseline": 0.016427104722794184
+    },
+    {
+      "disease_id": "hypertension",
+      "disease": "Hypertension (I10-I15)",
+      "icd10": "I10-I15",
+      "best_token": "diag:I12",
+      "score": -7.113216876983643,
+      "rank_among_diagnosis_tokens": 2,
+      "rank": 2,
+      "appeared_in_future": false,
+      "first_future_token": "",
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "disease_id": "type2_diabetes",
+      "disease": "Type 2 diabetes (E11)",
+      "icd10": "E11",
+      "best_token": "diag:E11",
+      "score": -9.071887016296387,
+      "rank_among_diagnosis_tokens": 9,
+      "rank": 3,
+      "appeared_in_future": false,
+      "first_future_token": "",
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "disease_id": "atrial_fibrillation",
+      "disease": "Atrial fibrillation and flutter (I48)",
+      "icd10": "I48",
+      "best_token": "diag:I48",
+      "score": -9.105732917785645,
+      "rank_among_diagnosis_tokens": 10,
+      "rank": 4,
+      "appeared_in_future": false,
+      "first_future_token": "",
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "disease_id": "ischemic_heart_disease",
+      "disease": "Ischemic heart disease (I20-I25)",
+      "icd10": "I20-I25",
+      "best_token": "diag:I21",
+      "score": -9.300275802612305,
+      "rank_among_diagnosis_tokens": 11,
+      "rank": 5,
+      "appeared_in_future": false,
+      "first_future_token": "",
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "disease_id": "myocardial_infarction",
+      "disease": "Myocardial infarction (I21-I22)",
+      "icd10": "I21-I22",
+      "best_token": "diag:I21",
+      "score": -9.300275802612305,
+      "rank_among_diagnosis_tokens": 11,
+      "rank": 6,
+      "appeared_in_future": false,
+      "first_future_token": "",
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "disease_id": "heart_failure",
+      "disease": "Heart failure (I50)",
+      "icd10": "I50",
+      "best_token": "diag:I50",
+      "score": -9.311941146850586,
+      "rank_among_diagnosis_tokens": 12,
+      "rank": 7,
+      "appeared_in_future": false,
+      "first_future_token": "",
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "disease_id": "cerebrovascular_disease",
+      "disease": "Cerebrovascular disease (I60-I69)",
+      "icd10": "I60-I69",
+      "best_token": "diag:I63",
+      "score": -10.925156593322754,
+      "rank_among_diagnosis_tokens": 67,
+      "rank": 8,
+      "appeared_in_future": false,
+      "first_future_token": "",
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "disease_id": "copd",
+      "disease": "Chronic obstructive pulmonary disease (J44)",
+      "icd10": "J44",
+      "best_token": "diag:J44",
+      "score": -11.715338706970215,
+      "rank_among_diagnosis_tokens": 114,
+      "rank": 9,
+      "appeared_in_future": false,
+      "first_future_token": "",
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "disease_id": "hyperlipidemia",
+      "disease": "Disorders of lipoprotein metabolism (E78)",
+      "icd10": "E78",
+      "best_token": "diag:E78",
+      "score": -13.960517883300781,
+      "rank_among_diagnosis_tokens": 400,
+      "rank": 10,
+      "appeared_in_future": false,
+      "first_future_token": "",
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    }
+  ],
+  "top_death": [
+    {
+      "rank": 1,
+      "token_id": 359,
+      "token": "death:I25",
+      "event_type": "death",
+      "score": -10.367572784423828,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 2,
+      "token_id": 286,
+      "token": "death:E11",
+      "event_type": "death",
+      "score": -10.958443641662598,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 3,
+      "token_id": 357,
+      "token": "death:I21",
+      "event_type": "death",
+      "score": -11.29088020324707,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 4,
+      "token_id": 287,
+      "token": "death:E14",
+      "event_type": "death",
+      "score": -11.41540813446045,
+      "appeared_in_future": true,
+      "first_future_age_years": 62.9678302532512,
+      "years_after_baseline": 1.2840520191649603
+    },
+    {
+      "rank": 5,
+      "token_id": 367,
+      "token": "death:I35",
+      "event_type": "death",
+      "score": -12.029396057128906,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 6,
+      "token_id": 523,
+      "token": "death:N18",
+      "event_type": "death",
+      "score": -12.205580711364746,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 7,
+      "token_id": 406,
+      "token": "death:J18",
+      "event_type": "death",
+      "score": -12.339494705200195,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 8,
+      "token_id": 370,
+      "token": "death:I42",
+      "event_type": "death",
+      "score": -12.453825950622559,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 9,
+      "token_id": 468,
+      "token": "death:K76",
+      "event_type": "death",
+      "score": -12.519067764282227,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 10,
+      "token_id": 566,
+      "token": "death:U07",
+      "event_type": "death",
+      "score": -12.620722770690918,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    }
+  ],
+  "top_cancer": [
+    {
+      "rank": 1,
+      "token_id": 86,
+      "token": "cancer:C92",
+      "event_type": "cancer",
+      "score": -10.977478981018066,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 2,
+      "token_id": 84,
+      "token": "cancer:C90",
+      "event_type": "cancer",
+      "score": -11.307209014892578,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 3,
+      "token_id": 41,
+      "token": "cancer:C44",
+      "event_type": "cancer",
+      "score": -11.33586311340332,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 4,
+      "token_id": 79,
+      "token": "cancer:C83",
+      "event_type": "cancer",
+      "score": -11.336792945861816,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 5,
+      "token_id": 24,
+      "token": "cancer:C22",
+      "event_type": "cancer",
+      "score": -11.454123497009277,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 6,
+      "token_id": 60,
+      "token": "cancer:C64",
+      "event_type": "cancer",
+      "score": -11.464963912963867,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 7,
+      "token_id": 125,
+      "token": "cancer:D46",
+      "event_type": "cancer",
+      "score": -11.769323348999023,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 8,
+      "token_id": 57,
+      "token": "cancer:C61",
+      "event_type": "cancer",
+      "score": -11.782646179199219,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 9,
+      "token_id": 100,
+      "token": "cancer:D09",
+      "event_type": "cancer",
+      "score": -11.810165405273438,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    },
+    {
+      "rank": 10,
+      "token_id": 63,
+      "token": "cancer:C67",
+      "event_type": "cancer",
+      "score": -12.005941390991211,
+      "appeared_in_future": false,
+      "first_future_age_years": null,
+      "years_after_baseline": null
+    }
+  ],
+  "actual_future_scored_events": [
+    {
+      "age_years": 61.700205338809035,
+      "token": "diag:N18",
+      "event_type": "diag",
+      "event_type_name": "诊断",
+      "score_at_baseline": -4.952636241912842,
+      "rank_within_event_type": 1
+    },
+    {
+      "age_years": 62.69952087611225,
+      "token": "diag:I95",
+      "event_type": "diag",
+      "event_type_name": "诊断",
+      "score_at_baseline": -10.750733375549316,
+      "rank_within_event_type": 58
+    },
+    {
+      "age_years": 62.69952087611225,
+      "token": "diag:N17",
+      "event_type": "diag",
+      "event_type_name": "诊断",
+      "score_at_baseline": -7.909683704376221,
+      "rank_within_event_type": 3
+    },
+    {
+      "age_years": 62.9678302532512,
+      "token": "death:E14",
+      "event_type": "death",
+      "event_type_name": "死亡登记",
+      "score_at_baseline": -11.41540813446045,
+      "rank_within_event_type": 4
+    }
+  ],
+  "visuals": {
+    "timeline_svg": "tests/output/patient_future_demo_modern/CKD-FUTURE-MODERN-346_timeline.svg",
+    "prediction_bars_svg": "tests/output/patient_future_demo_modern/CKD-FUTURE-MODERN-346_prediction_bars.svg",
+    "future_scores_svg": "tests/output/patient_future_demo_modern/CKD-FUTURE-MODERN-346_future_scores.svg"
+  }
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+<rect width="100%" height="100%" fill="#fbfaf7"/>
+<style>text{font-family:'Microsoft YaHei',Arial,sans-serif;fill:#172033;font-size:14px}.title{font-size:25px;font-weight:700}.sub{fill:#596275;font-size:13px}.label{font-size:15px}.rank{font-size:16px;font-weight:700}</style>
+<text x="70" y="38" class="title">Trajectory generation key-event hit rates</text>
+<text x="70" y="62" class="sub">N=200 stochastic rollouts; full-vocab generation stops at death, max age, or max steps.</text>
+<text x="70" y="118" class="label">diag:I48</text>
+<rect x="245" y="95" width="113.7" height="32" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="372.8" y="117" class="sub">35/200 (17.5%)</text>
+<text x="70" y="176" class="label">diag:I50</text>
+<rect x="245" y="153" width="110.5" height="32" rx="8" fill="#0891b2" opacity="0.88"/>
+<text x="369.5" y="175" class="sub">34/200 (17.0%)</text>
+<text x="70" y="234" class="label">any death:*</text>
+<rect x="245" y="211" width="565.5" height="32" rx="8" fill="#111827" opacity="0.88"/>
+<text x="824.5" y="233" class="sub">174/200 (87.0%)</text>
+<text x="70" y="292" class="label">death:C90</text>
+<rect x="245" y="269" width="139.8" height="32" rx="8" fill="#be123c" opacity="0.88"/>
+<text x="398.8" y="291" class="sub">43/200 (21.5%)</text>
+</svg>

@@ -1,0 +1,9 @@
+{
+  "experiment_id": "P3_multitype_rope",
+  "dataset_profile": "multitype",
+  "data_dir": "data/paper_protocol_v1/multitype",
+  "encoder": "causal_delphi",
+  "age_sincos": true,
+  "continuous_age_rope": true,
+  "role": "primary_full_cohort_model"
+}

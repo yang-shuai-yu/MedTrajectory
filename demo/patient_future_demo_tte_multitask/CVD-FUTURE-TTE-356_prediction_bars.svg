@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1858" viewBox="0 0 1280 1858">
+<rect width="100%" height="100%" fill="#fbfaf7"/>
+<style>text{font-family:'Microsoft YaHei',Arial,sans-serif;fill:#172033;font-size:14px}.title{font-size:25px;font-weight:700}.sub{fill:#596275;font-size:13px}.section{font-size:18px;font-weight:700}.rank{font-weight:700}</style>
+<text x="70" y="38" class="title">Baseline ranked candidates</text>
+<text x="70" y="62" class="sub">Raw logits are only used for ranking within this model; green bars mean the token/group appears later in the hidden future.</text>
+<text x="70" y="92" class="section">Top diagnosis candidates</text>
+<text x="70" y="148" class="rank">#1</text>
+<text x="120" y="148">diag:I63</text>
+<rect x="330" y="128" width="730.0" height="26" rx="8" fill="#16a34a" opacity="0.88"/>
+<text x="1072.0" y="148" class="sub">logit -5.679; observed later</text>
+<text x="70" y="186" class="rank">#2</text>
+<text x="120" y="186">diag:I61</text>
+<rect x="330" y="166" width="365.7" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="707.7" y="186" class="sub">logit -7.265; not observed later</text>
+<text x="70" y="224" class="rank">#3</text>
+<text x="120" y="224">diag:G45</text>
+<rect x="330" y="204" width="347.5" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="689.5" y="224" class="sub">logit -7.345; not observed later</text>
+<text x="70" y="262" class="rank">#4</text>
+<text x="120" y="262">diag:H53</text>
+<rect x="330" y="242" width="244.4" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="586.4" y="262" class="sub">logit -7.794; not observed later</text>
+<text x="70" y="300" class="rank">#5</text>
+<text x="120" y="300">diag:E87</text>
+<rect x="330" y="280" width="238.2" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="580.2" y="300" class="sub">logit -7.821; not observed later</text>
+<text x="70" y="338" class="rank">#6</text>
+<text x="120" y="338">diag:I48</text>
+<rect x="330" y="318" width="137.6" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="479.6" y="338" class="sub">logit -8.259; not observed later</text>
+<text x="70" y="376" class="rank">#7</text>
+<text x="120" y="376">diag:I65</text>
+<rect x="330" y="356" width="136.2" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="478.2" y="376" class="sub">logit -8.265; not observed later</text>
+<text x="70" y="414" class="rank">#8</text>
+<text x="120" y="414">diag:I67</text>
+<rect x="330" y="394" width="129.7" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="471.7" y="414" class="sub">logit -8.293; not observed later</text>
+<text x="70" y="452" class="rank">#9</text>
+<text x="120" y="452">diag:I64</text>
+<rect x="330" y="432" width="121.1" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="463.1" y="452" class="sub">logit -8.331; not observed later</text>
+<text x="70" y="490" class="rank">#10</text>
+<text x="120" y="490">diag:J18</text>
+<rect x="330" y="470" width="110.0" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="452.0" y="490" class="sub">logit -8.379; not observed later</text>
+<text x="70" y="542" class="section">Top selected disease groups</text>
+<text x="70" y="598" class="rank">#1</text>
+<text x="120" y="598">Cerebrovascular disease (I60-I69)</text>
+<rect x="330" y="578" width="730.0" height="26" rx="8" fill="#16a34a" opacity="0.88"/>
+<text x="1072.0" y="598" class="sub">logit -5.679; observed later</text>
+<text x="70" y="636" class="rank">#2</text>
+<text x="120" y="636">Atrial fibrillation and flutter (I48)</text>
+<rect x="330" y="616" width="550.1" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="892.1" y="636" class="sub">logit -8.259; not observed later</text>
+<text x="70" y="674" class="rank">#3</text>
+<text x="120" y="674">Ischemic heart disease (I20-I25)</text>
+<rect x="330" y="654" width="482.9" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="824.9" y="674" class="sub">logit -9.223; not observed later</text>
+<text x="70" y="712" class="rank">#4</text>
+<text x="120" y="712">Myocardial infarction (I21-I22)</text>
+<rect x="330" y="692" width="482.9" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="824.9" y="712" class="sub">logit -9.223; not observed later</text>
+<text x="70" y="750" class="rank">#5</text>
+<text x="120" y="750">Type 2 diabetes (E11)</text>
+<rect x="330" y="730" width="457.0" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="799.0" y="750" class="sub">logit -9.595; not observed later</text>
+<text x="70" y="788" class="rank">#6</text>
+<text x="120" y="788">Heart failure (I50)</text>
+<rect x="330" y="768" width="457.0" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="799.0" y="788" class="sub">logit -9.596; not observed later</text>
+<text x="70" y="826" class="rank">#7</text>
+<text x="120" y="826">Chronic kidney disease (N18)</text>
+<rect x="330" y="806" width="449.9" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="791.9" y="826" class="sub">logit -9.696; not observed later</text>
+<text x="70" y="864" class="rank">#8</text>
+<text x="120" y="864">Hypertension (I10-I15)</text>
+<rect x="330" y="844" width="445.2" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="787.2" y="864" class="sub">logit -9.765; not observed later</text>
+<text x="70" y="902" class="rank">#9</text>
+<text x="120" y="902">Chronic obstructive pulmonary disease (J44)</text>
+<rect x="330" y="882" width="347.9" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="689.9" y="902" class="sub">logit -11.160; not observed later</text>
+<text x="70" y="940" class="rank">#10</text>
+<text x="120" y="940">Disorders of lipoprotein metabolism (E78)</text>
+<rect x="330" y="920" width="110.0" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="452.0" y="940" class="sub">logit -14.573; not observed later</text>
+<text x="70" y="992" class="section">Top death candidates</text>
+<text x="70" y="1048" class="rank">#1</text>
+<text x="120" y="1048">death:I61</text>
+<rect x="330" y="1028" width="730.0" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="1072.0" y="1048" class="sub">logit -10.312; not observed later</text>
+<text x="70" y="1086" class="rank">#2</text>
+<text x="120" y="1086">death:I64</text>
+<rect x="330" y="1066" width="413.2" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="755.2" y="1086" class="sub">logit -10.929; not observed later</text>
+<text x="70" y="1124" class="rank">#3</text>
+<text x="120" y="1124">death:U07</text>
+<rect x="330" y="1104" width="317.9" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="659.9" y="1124" class="sub">logit -11.114; not observed later</text>
+<text x="70" y="1162" class="rank">#4</text>
+<text x="120" y="1162">death:I25</text>
+<rect x="330" y="1142" width="310.7" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="652.7" y="1162" class="sub">logit -11.128; not observed later</text>
+<text x="70" y="1200" class="rank">#5</text>
+<text x="120" y="1200">death:I48</text>
+<rect x="330" y="1180" width="267.5" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="609.5" y="1200" class="sub">logit -11.213; not observed later</text>
+<text x="70" y="1238" class="rank">#6</text>
+<text x="120" y="1238">death:I63</text>
+<rect x="330" y="1218" width="230.6" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="572.6" y="1238" class="sub">logit -11.284; not observed later</text>
+<text x="70" y="1276" class="rank">#7</text>
+<text x="120" y="1276">death:E85</text>
+<rect x="330" y="1256" width="216.5" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="558.5" y="1276" class="sub">logit -11.312; not observed later</text>
+<text x="70" y="1314" class="rank">#8</text>
+<text x="120" y="1314">death:I62</text>
+<rect x="330" y="1294" width="175.2" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="517.2" y="1314" class="sub">logit -11.392; not observed later</text>
+<text x="70" y="1352" class="rank">#9</text>
+<text x="120" y="1352">death:I60</text>
+<rect x="330" y="1332" width="110.5" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="452.5" y="1352" class="sub">logit -11.518; not observed later</text>
+<text x="70" y="1390" class="rank">#10</text>
+<text x="120" y="1390">death:F01</text>
+<rect x="330" y="1370" width="110.0" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="452.0" y="1390" class="sub">logit -11.519; not observed later</text>
+<text x="70" y="1442" class="section">Top cancer candidates</text>
+<text x="70" y="1498" class="rank">#1</text>
+<text x="120" y="1498">cancer:C44</text>
+<rect x="330" y="1478" width="730.0" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="1072.0" y="1498" class="sub">logit -11.170; not observed later</text>
+<text x="70" y="1536" class="rank">#2</text>
+<text x="120" y="1536">cancer:C34</text>
+<rect x="330" y="1516" width="623.8" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="965.8" y="1536" class="sub">logit -11.517; not observed later</text>
+<text x="70" y="1574" class="rank">#3</text>
+<text x="120" y="1574">cancer:C71</text>
+<rect x="330" y="1554" width="622.2" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="964.2" y="1574" class="sub">logit -11.522; not observed later</text>
+<text x="70" y="1612" class="rank">#4</text>
+<text x="120" y="1612">cancer:C64</text>
+<rect x="330" y="1592" width="512.3" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="854.3" y="1612" class="sub">logit -11.881; not observed later</text>
+<text x="70" y="1650" class="rank">#5</text>
+<text x="120" y="1650">cancer:C50</text>
+<rect x="330" y="1630" width="298.6" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="640.6" y="1650" class="sub">logit -12.579; not observed later</text>
+<text x="70" y="1688" class="rank">#6</text>
+<text x="120" y="1688">cancer:D32</text>
+<rect x="330" y="1668" width="199.6" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="541.6" y="1688" class="sub">logit -12.903; not observed later</text>
+<text x="70" y="1726" class="rank">#7</text>
+<text x="120" y="1726">cancer:C61</text>
+<rect x="330" y="1706" width="173.2" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="515.2" y="1726" class="sub">logit -12.989; not observed later</text>
+<text x="70" y="1764" class="rank">#8</text>
+<text x="120" y="1764">cancer:C69</text>
+<rect x="330" y="1744" width="127.8" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="469.8" y="1764" class="sub">logit -13.137; not observed later</text>
+<text x="70" y="1802" class="rank">#9</text>
+<text x="120" y="1802">cancer:D47</text>
+<rect x="330" y="1782" width="122.7" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="464.7" y="1802" class="sub">logit -13.154; not observed later</text>
+<text x="70" y="1840" class="rank">#10</text>
+<text x="120" y="1840">cancer:C18</text>
+<rect x="330" y="1820" width="110.0" height="26" rx="8" fill="#2563eb" opacity="0.88"/>
+<text x="452.0" y="1840" class="sub">logit -13.195; not observed later</text>
+</svg>

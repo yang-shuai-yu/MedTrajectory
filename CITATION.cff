@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "MedTrajectory: multi-type longitudinal health-event trajectory modelling"
+abstract: >-
+  Reference implementation of MedTrajectory, a decoder-only autoregressive model
+  over multi-type clinical event sequences with absolute age and continuous
+  relative-time (RoPE) representations, together with the trajectory-generation
+  and fixed-horizon risk evaluation protocols, the Track R / Track G contracts,
+  and the MIMIC-IV cross-setting replication pipeline.
+version: "1.0.0"
+date-released: "2026-09-16"
+license: Apache-2.0
+license-url: "https://www.apache.org/licenses/LICENSE-2.0"
+repository-code: "https://github.com/yang-shuai-yu/MedTrajectory"
+url: "https://github.com/yang-shuai-yu/MedTrajectory"
+type: software
+keywords:
+  - electronic health records
+  - generative modelling
+  - longitudinal trajectories
+  - survival analysis
+  - representation learning
+  - UK Biobank
+  - MIMIC-IV
+# ---------------------------------------------------------------------------
+# TODO(authors): the entry below uses the account name from the repository
+# configuration. Replace it with the full author list, in manuscript order,
+# including affiliations and ORCID iDs, before the associated paper is
+# published. Do not leave a placeholder such as "<FAMILY NAME>" in a release:
+# GitHub validates this file and will not render the citation if it is invalid.
+# ---------------------------------------------------------------------------
+authors:
+  - name: "yang-shuai-yu"
+contact:
+  - name: "yang-shuai-yu"
+    email: "2272001009@qq.com"
+# NOTE ON DATA: this software does not include UK Biobank or MIMIC-IV data.
+# Both require separate credentialed access; see docs/DATA.md.

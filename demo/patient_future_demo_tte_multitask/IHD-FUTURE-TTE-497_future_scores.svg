@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="194" viewBox="0 0 1280 194">
+<rect width="100%" height="100%" fill="#fbfaf7"/>
+<style>text{font-family:'Microsoft YaHei',Arial,sans-serif;fill:#172033;font-size:14px}.title{font-size:25px;font-weight:700}.sub{fill:#596275;font-size:13px}.head{font-weight:700;fill:#0f172a}.line{stroke:#e5e7eb;stroke-width:1}</style>
+<text x="70" y="38" class="title">Actual future events scored at baseline</text>
+<text x="70" y="62" class="sub">Ranks show where each true future token stood among same-type candidates at the baseline step.</text>
+<text x="75" y="92" class="head">Age</text>
+<text x="185" y="92" class="head">Actual future token</text>
+<text x="520" y="92" class="head">Type</text>
+<text x="700" y="92" class="head">Baseline logit</text>
+<text x="900" y="92" class="head">Rank within type</text>
+<line x1="70" y1="106" x2="1210" y2="106" class="line"/>
+<text x="75" y="134">63.201</text>
+<text x="185" y="134">diag:I25</text>
+<text x="520" y="134">诊断</text>
+<text x="700" y="134">-4.190</text>
+<text x="900" y="134">1</text>
+</svg>

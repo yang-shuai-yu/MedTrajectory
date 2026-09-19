@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="430" viewBox="0 0 1280 430">
+<rect width="100%" height="100%" fill="#fbfaf7"/>
+<style>text{font-family:'Microsoft YaHei',Arial,sans-serif;fill:#172033;font-size:14px}.title{font-size:25px;font-weight:700}.sub{fill:#596275;font-size:13px}.label{font-size:12px}.axis{stroke:#8b95a7;stroke-width:2}.grid{stroke:#e5e7eb;stroke-width:1}</style>
+<rect x="1132.8" y="78" width="82.2" height="237" fill="#e0f2fe" opacity="0.55"/>
+<text x="85" y="38" class="title">具体患者未来轨迹 demo: IHD-FUTURE-MODERN-497</text>
+<text x="85" y="62" class="sub">基线左侧为模型可见历史；右侧为推理时隐藏、事后用于对照的真实未来轨迹。</text>
+<line x1="85" y1="315" x2="1215" y2="315" class="axis"/>
+<line x1="1132.8" y1="70" x2="1132.8" y2="327" stroke="#0891b2" stroke-width="3"/>
+<text x="1140.8" y="63" class="sub">baseline 63.181y</text>
+<line x1="85.0" y1="78" x2="85.0" y2="323" class="grid"/>
+<text x="85.0" y="345" text-anchor="middle" class="sub">40</text>
+<line x1="220.6" y1="78" x2="220.6" y2="323" class="grid"/>
+<text x="220.6" y="345" text-anchor="middle" class="sub">43</text>
+<line x1="356.2" y1="78" x2="356.2" y2="323" class="grid"/>
+<text x="356.2" y="345" text-anchor="middle" class="sub">46</text>
+<line x1="491.8" y1="78" x2="491.8" y2="323" class="grid"/>
+<text x="491.8" y="345" text-anchor="middle" class="sub">49</text>
+<line x1="627.4" y1="78" x2="627.4" y2="323" class="grid"/>
+<text x="627.4" y="345" text-anchor="middle" class="sub">52</text>
+<line x1="763.0" y1="78" x2="763.0" y2="323" class="grid"/>
+<text x="763.0" y="345" text-anchor="middle" class="sub">55</text>
+<line x1="898.6" y1="78" x2="898.6" y2="323" class="grid"/>
+<text x="898.6" y="345" text-anchor="middle" class="sub">58</text>
+<line x1="1034.2" y1="78" x2="1034.2" y2="323" class="grid"/>
+<text x="1034.2" y="345" text-anchor="middle" class="sub">61</text>
+<line x1="1169.8" y1="78" x2="1169.8" y2="323" class="grid"/>
+<text x="1169.8" y="345" text-anchor="middle" class="sub">64</text>
+<text x="1215" y="369" text-anchor="end" class="sub">Age (years)</text>
+<circle cx="138.6" cy="232" r="6" fill="#d97706" stroke="#475569" stroke-width="2"/>
+<line x1="138.6" y1="238" x2="138.6" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="139.2" cy="172" r="6" fill="#2563eb" stroke="#475569" stroke-width="2"/>
+<line x1="139.2" y1="178" x2="139.2" y2="315" stroke="#2563eb" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<text x="139.2" y="154" text-anchor="middle" class="label">41.199y diag:O14</text>
+<circle cx="916.7" cy="172" r="6" fill="#2563eb" stroke="#475569" stroke-width="2"/>
+<line x1="916.7" y1="178" x2="916.7" y2="315" stroke="#2563eb" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<text x="916.7" y="154" text-anchor="middle" class="label">58.401y diag:I21</text>
+<circle cx="917.7" cy="232" r="6" fill="#d97706" stroke="#475569" stroke-width="2"/>
+<line x1="917.7" y1="238" x2="917.7" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="921.2" cy="172" r="6" fill="#2563eb" stroke="#475569" stroke-width="2"/>
+<line x1="921.2" y1="178" x2="921.2" y2="315" stroke="#2563eb" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<text x="921.2" y="154" text-anchor="middle" class="label">58.500y diag:I20</text>
+<circle cx="921.2" cy="232" r="6" fill="#d97706" stroke="#475569" stroke-width="2"/>
+<line x1="921.2" y1="238" x2="921.2" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="1132.8" cy="232" r="6" fill="#d97706" stroke="#475569" stroke-width="2"/>
+<line x1="1132.8" y1="238" x2="1132.8" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="1133.7" cy="172" r="8" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<line x1="1133.7" y1="180" x2="1133.7" y2="315" stroke="#2563eb" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<text x="1133.7" y="154" text-anchor="middle" class="label">63.201y diag:I25</text>
+<circle cx="85" cy="386" r="6" fill="#2563eb"/>
+<text x="99" y="391" class="sub">诊断</text>
+<circle cx="235" cy="386" r="6" fill="#d97706"/>
+<text x="249" y="391" class="sub">操作</text>
+<circle cx="385" cy="386" r="6" fill="#be123c"/>
+<text x="399" y="391" class="sub">癌症登记</text>
+<circle cx="535" cy="386" r="6" fill="#111827"/>
+<text x="549" y="391" class="sub">死亡登记</text>
+</svg>

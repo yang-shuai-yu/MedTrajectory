@@ -1,0 +1,21 @@
+{
+  "protocol_id": "CARoPE_locked_test_v2",
+  "result_class": "horizon_head",
+  "medical_protocol": "paper_medical_control_v1",
+  "data_protocol_id": "paper_protocol_v2_locked_test",
+  "split_seed": 1337,
+  "training_seeds": [42],
+  "horizons_years": [1.0, 5.0, 10.0],
+  "age_groups_years": [50.0, 55.0, 60.0, 65.0, 70.0, 75.0],
+  "age_bin_width_years": 5.0,
+  "sex_stratified": true,
+  "case_control": "paper_censor_aware_v1",
+  "checkpoint_selection_rule": "pretraining=min_val_pretraining_loss; horizon=max_val_horizon_auc_mean",
+  "calibration_bins": 10,
+  "bootstrap": 1000,
+  "bootstrap_seed": 42,
+  "multiple_testing": "Holm",
+  "aggregation": "macro_over_sex_disease_horizon_age_cells",
+  "validation_consistency_requires_protocol_binding": true,
+  "one_shot_test": true
+}

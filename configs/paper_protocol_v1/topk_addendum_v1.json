@@ -1,0 +1,48 @@
+{
+  "protocol": "paper_protocol_topk_addendum_v1",
+  "analysis_status": "secondary_posthoc_addendum",
+  "checkpoint_stage": "risk_best_val_loss",
+  "checkpoint_training_excludes_test": true,
+  "test_evaluation_once": true,
+  "splits": ["val", "test"],
+  "topk": [1, 5, 10],
+  "selection": "right",
+  "padding": "regular",
+  "block_size": 128,
+  "batch_size": 128,
+  "seed": 42,
+  "diseases_yaml": "docs/selected_diseases.yaml",
+  "output_dir": "results/paper_protocol_v1/topk_addendum_20260810",
+  "primary_horizon_results_untouched": "results/paper_protocol_v1/locked_test_20260809/final_test_shared_exact",
+  "comparability": {
+    "direct": ["P0_seed42_vs_P1_seed42", "P2_seed42_vs_P3_seed42"],
+    "descriptive_only": ["diagnosis_death_vs_multitype"],
+    "reason": "P0/P1 and P2/P3 use different data profiles and vocabularies."
+  },
+  "models": [
+    {
+      "name": "P0_seed42",
+      "data_profile": "diagnosis_death",
+      "checkpoint": "results/paper_protocol_v1/retrain_locked_test_20260808/my1_seed42_all/P0_seed42/risk/checkpoints/best_val_loss.pt",
+      "data_dir": "paper_protocol_v1_locked_test/diagnosis_death"
+    },
+    {
+      "name": "P1_seed42",
+      "data_profile": "diagnosis_death",
+      "checkpoint": "results/paper_protocol_v1/retrain_locked_test_20260808/my1_seed42_all/P1_seed42/risk/checkpoints/best_val_loss.pt",
+      "data_dir": "paper_protocol_v1_locked_test/diagnosis_death"
+    },
+    {
+      "name": "P2_seed42",
+      "data_profile": "multitype",
+      "checkpoint": "results/paper_protocol_v1/retrain_locked_test_20260808/my1_seed42_all/P2_seed42/risk/checkpoints/best_val_loss.pt",
+      "data_dir": "paper_protocol_v1_locked_test/multitype"
+    },
+    {
+      "name": "P3_seed42",
+      "data_profile": "multitype",
+      "checkpoint": "results/paper_protocol_v1/retrain_locked_test_20260808/my1_seed42_all/P3_seed42/risk/checkpoints/best_val_loss.pt",
+      "data_dir": "paper_protocol_v1_locked_test/multitype"
+    }
+  ]
+}

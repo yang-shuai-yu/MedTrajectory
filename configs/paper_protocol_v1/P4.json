@@ -1,0 +1,9 @@
+{
+  "experiment_id": "P4_reduced_multitype_rope",
+  "dataset_profile": "reduced_multitype",
+  "data_dir": "data/paper_protocol_v1/reduced_multitype",
+  "encoder": "causal_delphi",
+  "age_sincos": true,
+  "continuous_age_rope": true,
+  "role": "isolates_added_cohort_size_from_model_change"
+}

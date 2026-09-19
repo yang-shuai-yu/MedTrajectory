@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320">
+<rect width="100%" height="100%" fill="#fbfaf7"/>
+<style>text{font-family:'Microsoft YaHei',Arial,sans-serif;fill:#172033;font-size:14px}.title{font-size:25px;font-weight:700}.sub{fill:#596275;font-size:13px}.head{font-weight:700;fill:#0f172a}.line{stroke:#e5e7eb;stroke-width:1}</style>
+<text x="70" y="38" class="title">Actual future events scored at baseline</text>
+<text x="70" y="62" class="sub">Ranks show where each true future token stood among same-type candidates at the baseline step.</text>
+<text x="75" y="92" class="head">Age</text>
+<text x="185" y="92" class="head">Actual future token</text>
+<text x="520" y="92" class="head">Type</text>
+<text x="700" y="92" class="head">Baseline logit</text>
+<text x="900" y="92" class="head">Rank within type</text>
+<line x1="70" y1="106" x2="1210" y2="106" class="line"/>
+<text x="75" y="134">61.700</text>
+<text x="185" y="134">diag:N18</text>
+<text x="520" y="134">诊断</text>
+<text x="700" y="134">-4.805</text>
+<text x="900" y="134">1</text>
+<line x1="70" y1="148" x2="1210" y2="148" class="line"/>
+<text x="75" y="176">62.700</text>
+<text x="185" y="176">diag:I95</text>
+<text x="520" y="176">诊断</text>
+<text x="700" y="176">-10.591</text>
+<text x="900" y="176">58</text>
+<line x1="70" y1="190" x2="1210" y2="190" class="line"/>
+<text x="75" y="218">62.700</text>
+<text x="185" y="218">diag:N17</text>
+<text x="520" y="218">诊断</text>
+<text x="700" y="218">-7.835</text>
+<text x="900" y="218">3</text>
+<line x1="70" y1="232" x2="1210" y2="232" class="line"/>
+<text x="75" y="260">62.968</text>
+<text x="185" y="260">death:E14</text>
+<text x="520" y="260">死亡登记</text>
+<text x="700" y="260">-11.952</text>
+<text x="900" y="260">4</text>
+</svg>

@@ -1,0 +1,9 @@
+{
+  "experiment_id": "P1_diagnosis_death_rope",
+  "dataset_profile": "diagnosis_death",
+  "data_dir": "data/paper_protocol_v1/diagnosis_death",
+  "encoder": "causal_delphi",
+  "age_sincos": true,
+  "continuous_age_rope": true,
+  "role": "isolates_continuous_age_rope"
+}

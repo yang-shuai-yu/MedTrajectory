@@ -1,0 +1,21 @@
+# ---------------------------------------------------------------------------
+# MedTrajectory - optional / component-specific requirements
+#
+# None of these are needed for the core pipeline. Install only what you use.
+# ---------------------------------------------------------------------------
+
+# --- MIMIC-IV pipeline only -------------------------------------------------
+# reads the PheWAS phecode map and pheinfo tables (.rda) used to build the MIMIC
+# vocabulary
+pyreadr>=0.5
+
+# --- neural baseline arms only ---------------------------------------------
+# Med-BERT-style baselines
+transformers>=4.40
+# Mamba baseline arm
+mamba-ssm>=2.0
+# fast JSON I/O used by some aggregation scripts
+orjson>=3.9
+
+# --- run monitoring (optional; training works without it) -------------------
+wandb>=0.16

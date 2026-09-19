@@ -1,0 +1,226 @@
+{
+  "protocol_id": "track_r_v2_1",
+  "status": "ready_for_build_after_static_field_audit",
+  "static_field_audit_release": {
+    "manual_review_date": "2026-08-13",
+    "passed": true,
+    "remote_audit": "results/track_r_v2_1/manifests/static_field_audit_passed_20260813.json",
+    "source_extract_manifest": "data/track_r_v2_1_static_extract_manifest.json",
+    "row_count": 502411,
+    "checks": {
+      "sex_observed_codes": ["0", "1"],
+      "smoking_observed_codes": ["-3", "0", "1", "2"],
+      "alcohol_observed_codes": ["-3", "1", "2", "3", "4", "5", "6"],
+      "alcohol_codes_2_and_3_are_distinct": true,
+      "bmi_nonnumeric_count": 0,
+      "bmi_nonpositive_sentinel_count": 0,
+      "bmi_positive_below_15_count": 39,
+      "bmi_positive_below_15_policy": "retain_in_WHO_lt18.5_bin_and_record_as_UKB_privacy_truncation_diagnostic"
+    }
+  },
+  "test_policy": "one_shot_exploratory_after_validation_freeze",
+  "data_policy": "locked_test_excluded_train_val",
+  "source_data_dir": "data/paper_protocol_v2_locked_test/multitype",
+  "output_data_dir": "data/track_r_v2_1/multitype_static_prefix",
+  "output_root": "results/track_r_v2_1",
+  "diseases_yaml": "docs/selected_diseases.yaml",
+  "horizons_years": [1.0, 5.0, 10.0],
+  "age_groups_years": [50, 55, 60, 65, 70, 75],
+  "dynamic_context_length": 128,
+  "sequence_lengths": {
+    "A0-TokenStatic": 133,
+    "A0-noStatic": 129,
+    "A1-TokenStatic": 133,
+    "A1-noStatic": 129,
+    "Med-BERT-Paper": 133,
+    "Med-BERT-Matched-S": 133
+  },
+  "static_prefix": {
+    "enabled": true,
+    "logical_order": ["sex", "bmi", "smoking", "alcohol"],
+    "fixed_length": 4,
+    "token_templates": {
+      "sex": "static:sex:{category}",
+      "bmi": "static:bmi:{category}",
+      "smoking": "static:smoking:{category}",
+      "alcohol": "static:alcohol:{category}"
+    },
+    "age_anchor": {
+      "field_id": 21022,
+      "instance": "0.0",
+      "meaning": "age_at_recruitment",
+      "fallback": "birth_anchor_sequence_start_age",
+      "fallback_static_value_policy": "set_recruitment_measured_bmi_smoking_alcohol_to_missing",
+      "allow_anchor_after_first_dynamic_event": true,
+      "sequence_order_is_not_chronological": true,
+      "attention_order": "causal_by_sequence_position",
+      "temporal_visibility": "a_dynamic_query_may_attend_static_prefix_only_when_query_age_days_gte_static_anchor_age_days",
+      "forbid_age_sort_after_prefix": true
+    }
+  },
+  "dynamic_bos": {
+    "required": true,
+    "fixed_length": 1,
+    "token_key": "dynamic:BOS",
+    "sequence_position": "after_static_prefix_before_dynamic_window",
+    "age_anchor": "first_dynamic_clinical_event_age_in_retained_window",
+    "target": "first_dynamic_clinical_event_in_retained_window",
+    "target_multiplicity": "exactly_once_via_dynamic_BOS; suppress_any_original_predecessor_transition_to_that_event",
+    "ce_target_enabled": true,
+    "time_loss_enabled": false,
+    "horizon_source_enabled": false,
+    "mlm_target_enabled": false,
+    "static_visibility": "inherits_query_age_gate; BOS_before_recruitment_cannot_attend_recruitment_static_prefix",
+    "no_static_ablation_policy": "retain_dynamic_BOS_so_only_the_four_static_tokens_are_removed"
+  },
+  "static_fields": {
+    "sex": {
+      "field_id": 31,
+      "instance": "0.0",
+      "representation": "categorical_token",
+      "coding": {"0": "female", "1": "male", "-3": "missing"},
+      "audit_status": "available"
+    },
+    "bmi": {
+      "field_id": 21001,
+      "instance": "0.0",
+      "source_value_type": "continuous",
+      "coding_is_exhaustive": false,
+      "representation": "categorical_token",
+      "bins": ["missing", "lt18.5", "18.5_to_lt25", "25_to_lt30", "gte30"],
+      "cutpoints": [18.5, 25.0, 30.0],
+      "coding": {"-3": "missing"},
+      "nonpositive_values": "missing",
+      "below_15_policy": "retain_in_WHO_lt18.5_bin; report_count_and_source_privacy_truncation_note_in_field_audit_and_data_manifest",
+      "privacy_truncation_note": "UKB may truncate or otherwise protect extremely low BMI values; Track R does not introduce a new cutpoint at 15.",
+      "audit_status": "available"
+    },
+    "smoking": {
+      "field_id": 20116,
+      "instance": "0.0",
+      "representation": "categorical_token",
+      "categories": ["missing", "never", "previous", "current"],
+      "coding": {"0": "never", "1": "previous", "2": "current", "-3": "missing"},
+      "coding_must_be_confirmed_by_audit": true,
+      "audit_status": "pending"
+    },
+    "alcohol": {
+      "field_id": 1558,
+      "instance": "0.0",
+      "representation": "categorical_token",
+      "categories": ["missing", "never", "special_occasions", "one_to_three_per_month", "once_or_twice_per_week", "three_or_four_times_per_week", "daily_or_almost_daily"],
+      "coding": {"1": "daily_or_almost_daily", "2": "three_or_four_times_per_week", "3": "once_or_twice_per_week", "4": "one_to_three_per_month", "5": "special_occasions", "6": "never", "-3": "missing"},
+      "category_policy": "preserve_the_seven_registered_UKB_frequency_categories_without_merging_codes_2_and_3",
+      "coding_must_be_confirmed_by_audit": true,
+      "audit_status": "pending"
+    }
+  },
+  "redundancy_policy": {
+    "main_track_numeric_features": [],
+    "exclude_from_main_track": ["height", "weight"],
+    "reason": "BMI bins and raw height/weight encode overlapping body-size information; keep the primary comparison free of redundant static measurements.",
+    "sensitivity_analysis": "static_plus_height_weight_numeric",
+    "required_diagnostics": ["feature_correlation", "variance_inflation_factor_for_linear_models", "coefficient_stability"]
+  },
+  "loss_contract": {
+    "version": "track_r_static_prefix_dynamic_bos_loss_v2",
+    "ce_valid": "source_is_dynamic_sequence_token_or_required_dynamic_BOS_and_target_is_dynamic_clinical_event_and_target_is_not_padding_or_no_event_and_target_age_is_valid",
+    "time_to_next_event_valid": "ce_valid_and_source_is_not_dynamic_BOS_and_target_age_days_gt_source_age_days",
+    "time_gap_valid": "ce_valid_and_source_is_not_dynamic_BOS_and_target_age_days_gt_source_age_days",
+    "horizon_valid": "source_is_dynamic_sequence_token_and_source_is_not_dynamic_BOS_and_label_is_observed_under_censoring_rule; static_prefix_is_hidden_when_source_age_days_lt_static_anchor_age_days",
+    "static_to_static_transition": false,
+    "static_to_first_dynamic_transition": false,
+    "dynamic_to_static_transition": false,
+    "static_tokens_are_targets": false,
+    "dynamic_bos_is_required": true,
+    "dynamic_bos_to_first_dynamic_ce": true,
+    "first_dynamic_event_is_targeted_exactly_once": true,
+    "dynamic_bos_to_first_dynamic_time_loss": false,
+    "dynamic_bos_is_horizon_source": false,
+    "dynamic_bos_is_target": false,
+    "optional_additional_bos_or_static_end_token": false,
+    "mask_is_explicit_batch_tensor": true,
+    "explicit_batch_masks": ["static_token_mask", "bos_token_mask", "next_event_mask", "time_loss_mask"]
+  },
+  "transformer_variants": [
+    {"name": "A0-TokenStatic", "n_layer": 6, "n_head": 8, "n_embd": 64, "age_encoding": "sincos", "static_prefix": true, "static_branch": false},
+    {"name": "A0-noStatic", "n_layer": 6, "n_head": 8, "n_embd": 64, "age_encoding": "sincos", "static_prefix": false, "static_branch": false},
+    {"name": "A1-TokenStatic", "n_layer": 6, "n_head": 8, "n_embd": 64, "age_encoding": "carope", "static_prefix": true, "static_branch": false},
+    {"name": "A1-noStatic", "n_layer": 6, "n_head": 8, "n_embd": 64, "age_encoding": "carope", "static_prefix": false, "static_branch": false}
+  ],
+  "carope_diagnostic_analysis": {
+    "factorial_2x2": {
+      "models": ["A0-TokenStatic", "A0-noStatic", "A1-TokenStatic", "A1-noStatic"],
+      "data_dir": "output_data_dir",
+      "evaluator": "semantic_delphi_ukb.evaluate_track_r",
+      "paired_patient_bootstrap": true,
+      "interaction_auc": "(A1-TokenStatic - A0-TokenStatic) - (A1-noStatic - A0-noStatic)"
+    },
+    "same_source_extended_ablations": {
+      "models": ["A1-LegacySex-BOS", "A1-DynamicRoPE-PostStatic"],
+      "data_dir": "output_data_dir",
+      "evaluator": "semantic_delphi_ukb.evaluate_track_r",
+      "paired_patient_bootstrap": true,
+      "included_in_factorial_interaction": false
+    },
+    "cross_contract_rebuild": {
+      "model": "A1-LegacyContract-Rebuild",
+      "data_dir": "source_data_dir",
+      "evaluator": "semantic_delphi_ukb.evaluate_medical_control_tasks",
+      "paired_patient_bootstrap_with_track_r": false,
+      "historical_validation_reference": "results/paper_protocol_v2/car_rope_locked_validation_20260811_r1/validation_comparison/comparison.json",
+      "historical_model": "A1"
+    },
+    "checkpoint_drift": {
+      "model": "A1-TokenStatic-last",
+      "reference": "A1-TokenStatic best_val_horizon_auc.pt",
+      "reporting_role": "checkpoint_drift_only",
+      "included_in_model_ranking": false
+    }
+  },
+  "medbert_variants": [
+    {
+      "name": "Med-BERT-Paper",
+      "n_layer": 6,
+      "n_head": 6,
+      "hidden_size": 192,
+      "intermediate_size": 64,
+      "capacity_role": "published_architecture_reference",
+      "comparison_warning": "Parameter count is expected to exceed A1-TokenStatic; this contrast is not capacity controlled."
+    },
+    {
+      "name": "Med-BERT-Matched-S",
+      "n_layer": 6,
+      "n_head": 8,
+      "hidden_size": 64,
+      "intermediate_size": 256,
+      "capacity_role": "match_A1_TokenStatic_transformer_blocks",
+      "matching_tolerance_fraction": 0.05,
+      "comparison_warning": "Freeze only after actual parameter counts are computed with the final vocabulary."
+    }
+  ],
+  "medbert_pretraining": {
+    "objective": "masked_language_modeling",
+    "mask_probability": 0.35,
+    "replacement": {"mask_token": 0.8, "random_dynamic_token": 0.1, "unchanged": 0.1},
+    "eligible_tokens": "dynamic_clinical_tokens_only",
+    "static_tokens_are_masked": false,
+    "dynamic_bos_is_masked": false,
+    "no_event_is_masked": false,
+    "loss_on_unselected_tokens": false,
+    "checkpoint_selection": "minimum_validation_mlm_loss"
+  },
+  "validation_reporting_policy": {
+    "validation_is_used_for_selection_and_descriptive_reporting": true,
+    "validation_metrics_are_selection_biased_descriptive": true,
+    "applies_to_all_model_families": true,
+    "test_is_independent_of_selection": true,
+    "test_result_class": "exploratory"
+  },
+  "parallel_lanes": {
+    "lane_data_and_transformers": ["static_field_audit", "track_r_data_build", "A0-TokenStatic", "A0-noStatic", "A1-TokenStatic", "A1-noStatic"],
+    "lane_traditional_baselines": ["landmark_feature_build", "Logistic-R", "Cox-R", "MDRMF-Clinical-R"],
+    "lane_medbert": ["Med-BERT-Paper", "Med-BERT-Matched-S"],
+    "join_gate": "all_validation_predictions_frozen_and_row_paired_before_test"
+  }
+}

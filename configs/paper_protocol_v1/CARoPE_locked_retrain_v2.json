@@ -1,0 +1,23 @@
+{
+  "experiment_id": "CARoPE_locked_retrain_v2",
+  "status": "code_review_required",
+  "data_policy": "locked_test_excluded_train_val",
+  "protocol_id": "paper_protocol_v2_locked_test",
+  "data_dir": "data/paper_protocol_v2_locked_test/multitype",
+  "split_audit": "results/paper_protocol_v2/split_audits/multitype.json",
+  "test_eids_csv": "data/paper_protocol_v1/locked_test_eids.csv",
+  "diseases_yaml": "docs/selected_diseases.yaml",
+  "pretraining_entrypoint": "src/semantic_delphi_ukb/train_car_rope_pretraining.py",
+  "horizon_entrypoint": "src/semantic_delphi_ukb/train_car_rope.py",
+  "output_root": "results/paper_protocol_v2/car_rope_locked_retrain_20260811",
+  "seeds": [42],
+  "horizons_years": [1.0, 5.0, 10.0],
+  "pretraining": {"max_iters": 100000, "eval_interval": 500, "checkpoint_selection_rule": "minimum_val_pretraining_loss"},
+  "horizon": {"max_iters": 10000, "eval_interval": 250, "checkpoint_selection_rule": "maximum_val_horizon_auc_mean"},
+  "variants": [
+    {"name": "A0_sincos_control", "use_age_encoding": "true", "use_age_rope": "false", "use_relative_horizon_query": "false", "time_gap_loss_weight": 0.0},
+    {"name": "A1_car_rope_trunk", "use_age_encoding": "false", "use_age_rope": "true", "use_relative_horizon_query": "false", "time_gap_loss_weight": 0.0},
+    {"name": "A2_relative_horizon_query", "use_age_encoding": "false", "use_age_rope": "true", "use_relative_horizon_query": "true", "time_gap_loss_weight": 0.0},
+    {"name": "A3_full_carope", "use_age_encoding": "false", "use_age_rope": "true", "use_relative_horizon_query": "true", "time_gap_loss_weight": 0.2}
+  ]
+}

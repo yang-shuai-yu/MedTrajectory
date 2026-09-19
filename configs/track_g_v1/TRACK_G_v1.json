@@ -1,0 +1,211 @@
+{
+  "protocol_id": "track_g_v1",
+  "status": "ready_for_training",
+  "source_track_r_protocol": "configs/track_r_v2_2/TRACK_R_v2_2.json",
+  "source_track_r_protocol_sha256": "9a62db2f7e8899044d06f01ecfa14480b37b34359aefc45106e347cdfd1b9fd5",
+  "data_protocol_id": "track_r_v2_1",
+  "output_root": "results/track_g_v1",
+  "cohort_manifests": {
+    "validation": "results/track_g_v1/manifests/val_generation_cohort.json",
+    "locked_test": "results/track_g_v1/manifests/test_generation_cohort.json"
+  },
+  "locked_test_read": true,
+  "test_authorized": true,
+  "locked_test_authorization": {
+    "authorized_at": "2026-08-20",
+    "scope": "one_shot_track_g_v1_locked_test",
+    "validation_protocol_sha256": "17adc0868a3ce4e301afb99e97b7432f0a909c808ccde791b1d0b0be5996eaf9",
+    "sampler_selection_sha256": "b1e4bd9598824140eaf07f6df97fed5aed3f3ce26615e477de98b3605722606e",
+    "validation_assessment_sha256": "2b0df3fad6e832aeb1db838bf2b2065d041ddb4427b781cfe74ba76ab7d39051"
+  },
+  "seeds": [42, 43, 44],
+  "models": [
+    {
+      "name": "A0",
+      "family": "carope",
+      "role": "internal_no_additive_rope_control",
+      "train": false,
+      "checkpoint": "results/track_r_v2_2/runs/seed{seed}_additiverope1/pretraining/A0/checkpoints/last.pt"
+    },
+    {
+      "name": "A2",
+      "family": "carope",
+      "role": "generation_track_primary_candidate",
+      "train": false,
+      "checkpoint": "results/track_r_v2_2/runs/seed{seed}_additiverope1/pretraining/A2/checkpoints/last.pt"
+    },
+    {
+      "name": "ETHOS-Matched",
+      "family": "ethos_matched",
+      "role": "matched_time_token_causal_transformer",
+      "train": true,
+      "checkpoint": "results/track_g_v1/runs/seed{seed}/pretraining/ETHOS-Matched/checkpoints/last.pt"
+    },
+    {
+      "name": "Foresight-Matched",
+      "family": "foresight_matched",
+      "role": "matched_gpt_style_causal_concept_model",
+      "train": true,
+      "checkpoint": "results/track_g_v1/runs/seed{seed}/pretraining/Foresight-Matched/checkpoints/last.pt"
+    }
+  ],
+  "matched_input_contract": {
+    "static_prefix": true,
+    "dynamic_bos": true,
+    "dynamic_event_types": ["diagnosis", "procedure", "cancer", "death"],
+    "dynamic_context_length": 128,
+    "same_vocabulary": true,
+    "same_patient_splits": true,
+    "same_next_event_mask": true,
+    "same_time_loss_mask": true,
+    "same_semantic_token_initialization": true,
+    "paper_reported_numbers_are_external_reference_only": true
+  },
+  "time_rate_contracts": {
+    "historical_training_objective": "full_vocabulary_logsumexp_in_non_validation_training_mode",
+    "generation_and_evaluation_objective": "filtered_dynamic_clinical_event_logsumexp_excluding_ignore_tokens_and_no_event",
+    "historical_a0_a2_checkpoints_are_not_retrained_or_reinterpreted": true,
+    "same_day_targets_are_excluded_from_waiting_time_nll": true
+  },
+  "architecture": {
+    "n_layer": 6,
+    "n_head": 8,
+    "n_embd": 64,
+    "dropout": 0.1,
+    "ethos_gap_bucket_upper_days": [1.0, 7.0, 30.0, 90.0, 365.25, 1826.25, 3652.5],
+    "foresight_position_embedding": "learned_absolute"
+  },
+  "training": {
+    "max_iters": 100000,
+    "batch_size": 128,
+    "eval_interval": 500,
+    "eval_iters": 50,
+    "log_every": 25,
+    "learning_rate": 0.0006,
+    "min_learning_rate": 0.00006,
+    "warmup_iters": 1000,
+    "weight_decay": 0.2,
+    "gradient_clip_norm": 1.0,
+    "no_event_token_rate": 5,
+    "selection_checkpoint": "last.pt",
+    "best_checkpoint_role": "process_record_only",
+    "resume_required": true,
+    "required_run_files": [
+      "resolved_config.json",
+      "source_manifest.json",
+      "stdout.log",
+      "metrics.jsonl",
+      "status.json",
+      "checkpoints/last.pt"
+    ]
+  },
+  "sampler_selection": {
+    "split": "val",
+    "max_patients": 200,
+    "num_rollouts": 5,
+    "temperature_grid": [0.8, 1.0, 1.2],
+    "top_p_grid": [0.9, 1.0],
+    "death_logit_bias_grid": [-3.0, 0.0],
+    "selection_by_family": true,
+    "family_members": {
+      "carope": ["A0", "A2"],
+      "ethos_matched": ["ETHOS-Matched"],
+      "foresight_matched": ["Foresight-Matched"]
+    },
+    "a0_a2_share_one_carope_family_sampler": true,
+    "aggregate_training_seeds_before_selection": true,
+    "primary_metric": "diagnosis_jaccard",
+    "tie_breakers": [
+      "first_event_top10",
+      "time_mae_days",
+      "death_brier",
+      "lower_temperature",
+      "lower_top_p",
+      "death_logit_bias_closest_to_zero"
+    ],
+    "direction": ["higher", "higher", "lower", "lower", "lower", "lower", "lower_absolute_value"]
+  },
+  "generation_evaluation": {
+    "validation": {
+      "max_patients": 1000,
+      "num_rollouts": 20
+    },
+    "locked_test": {
+      "max_patients": 0,
+      "num_rollouts": 20,
+      "one_shot": true
+    },
+    "followup_years": 10.0,
+    "baseline_fraction": 0.65,
+    "min_history_events": 8,
+    "min_future_events": 3,
+    "max_new_tokens": 30,
+    "minimum_wait_days": 1.0,
+    "stop_after_death": true,
+    "sampling_seed": 20260819,
+    "event_sampling": "categorical_softmax_after_filtering_ignore_tokens_and_no_event",
+    "waiting_time_sampling": "exponential_total_rate_matching_filtered_track_r_v2_2_evaluator_log_rate",
+    "temperature_applies_to_event_identity_only": true,
+    "death_logit_bias_applies_to_event_identity_only": true,
+    "waiting_time_rate_uses_untempered_unbiased_logits": true,
+    "common_random_numbers_across_models": true,
+    "common_random_numbers_scope": "matched_only_until_trajectory_state_or_active_set_diverges",
+    "report_minimum_wait_clamp_rate": true
+  },
+  "metrics": {
+    "single_step": [
+      "full_vocab_hit_at_1",
+      "full_vocab_hit_at_5",
+      "full_vocab_hit_at_10",
+      "mrr",
+      "target_type_stratified_hit_at_1_5_10",
+      "waiting_time_nll"
+    ],
+    "multi_step": [
+      "diagnosis_precision",
+      "diagnosis_recall",
+      "diagnosis_jaccard",
+      "sequence_edit_distance",
+      "first_event_time_mae_days",
+      "event_count_mae",
+      "event_type_js_divergence",
+      "death_brier",
+      "death_ece"
+    ],
+    "validity": [
+      "nonmonotonic_time_rate",
+      "post_death_event_rate",
+      "minimum_wait_clamp_rate",
+      "duplicate_event_rate"
+    ]
+  },
+  "statistics": {
+    "unit": "patient",
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 20260819,
+    "percentile": [2.5, 97.5],
+    "paired_models": true,
+    "shared_patient_indices": true,
+    "per_seed_delta_then_average_deltas": true,
+    "do_not_average_probabilities_across_training_seeds": true,
+    "primary_contrast": {
+      "left": "A2",
+      "right": "A0",
+      "metric": "diagnosis_jaccard",
+      "direction": "higher"
+    },
+    "external_contrasts": [
+      {"left": "A2", "right": "ETHOS-Matched"},
+      {"left": "A2", "right": "Foresight-Matched"}
+    ]
+  },
+  "integrity": {
+    "validation_only_until_explicit_test_authorization": true,
+    "do_not_select_or_drop_training_seeds_post_hoc": true,
+    "report_seed_44_even_if_time_generation_is_unstable": true,
+    "no_test_commands_in_default_launcher": true,
+    "no_remote_deletion": true,
+    "no_participant_ids_in_logs": true
+  },
+  "protocol_manifest_sha256": "d3910c6d44dd6e725a8921fcb94b1bea0d46138b7158971a1ed9a275246cf513"
+}

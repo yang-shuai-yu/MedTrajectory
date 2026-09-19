@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="400" viewBox="0 0 1080 400">
+<rect width="100%" height="100%" fill="#fbfaf7"/>
+<style>text{font-family:'Microsoft YaHei',Arial,sans-serif;fill:#172033;font-size:14px}.title{font-size:25px;font-weight:700}.sub{fill:#596275;font-size:13px}.axis{stroke:#8b95a7;stroke-width:2}.grid{stroke:#e5e7eb;stroke-width:1}</style>
+<text x="70" y="38" class="title">Generated death-age distribution</text>
+<text x="70" y="62" class="sub">Only rollouts that generated a death:* token are included.</text>
+<line x1="80" y1="330" x2="1020" y2="330" class="axis"/>
+<line x1="80" y1="88" x2="80" y2="330" class="axis"/>
+<rect x="80.0" y="330.0" width="72.8" height="0.0" fill="#2563eb" opacity="0.82"/>
+<text x="116.4" y="354" text-anchor="middle" class="sub">67</text>
+<rect x="158.8" y="287.9" width="72.8" height="42.1" fill="#2563eb" opacity="0.82"/>
+<text x="195.2" y="354" text-anchor="middle" class="sub">68</text>
+<text x="195.2" y="281.9" text-anchor="middle" class="sub">4</text>
+<rect x="237.7" y="161.7" width="72.8" height="168.3" fill="#2563eb" opacity="0.82"/>
+<text x="274.1" y="354" text-anchor="middle" class="sub">69</text>
+<text x="274.1" y="155.7" text-anchor="middle" class="sub">16</text>
+<rect x="316.5" y="119.6" width="72.8" height="210.4" fill="#2563eb" opacity="0.82"/>
+<text x="352.9" y="354" text-anchor="middle" class="sub">70</text>
+<text x="352.9" y="113.6" text-anchor="middle" class="sub">20</text>
+<rect x="395.3" y="130.1" width="72.8" height="199.9" fill="#2563eb" opacity="0.82"/>
+<text x="431.8" y="354" text-anchor="middle" class="sub">72</text>
+<text x="431.8" y="124.1" text-anchor="middle" class="sub">19</text>
+<rect x="474.2" y="88.0" width="72.8" height="242.0" fill="#2563eb" opacity="0.82"/>
+<text x="510.6" y="354" text-anchor="middle" class="sub">73</text>
+<text x="510.6" y="82.0" text-anchor="middle" class="sub">23</text>
+<rect x="553.0" y="182.7" width="72.8" height="147.3" fill="#2563eb" opacity="0.82"/>
+<text x="589.4" y="354" text-anchor="middle" class="sub">74</text>
+<text x="589.4" y="176.7" text-anchor="middle" class="sub">14</text>
+<rect x="631.8" y="109.0" width="72.8" height="221.0" fill="#2563eb" opacity="0.82"/>
+<text x="668.2" y="354" text-anchor="middle" class="sub">75</text>
+<text x="668.2" y="103.0" text-anchor="middle" class="sub">21</text>
+<rect x="710.7" y="151.1" width="72.8" height="178.9" fill="#2563eb" opacity="0.82"/>
+<text x="747.1" y="354" text-anchor="middle" class="sub">77</text>
+<text x="747.1" y="145.1" text-anchor="middle" class="sub">17</text>
+<rect x="789.5" y="119.6" width="72.8" height="210.4" fill="#2563eb" opacity="0.82"/>
+<text x="825.9" y="354" text-anchor="middle" class="sub">78</text>
+<text x="825.9" y="113.6" text-anchor="middle" class="sub">20</text>
+<rect x="868.3" y="119.6" width="72.8" height="210.4" fill="#2563eb" opacity="0.82"/>
+<text x="904.7" y="354" text-anchor="middle" class="sub">79</text>
+<text x="904.7" y="113.6" text-anchor="middle" class="sub">20</text>
+<rect x="947.2" y="330.0" width="72.8" height="0.0" fill="#2563eb" opacity="0.82"/>
+<text x="983.6" y="354" text-anchor="middle" class="sub">80</text>
+<line x1="669.3" y1="88" x2="669.3" y2="330" stroke="#dc2626" stroke-width="3"/>
+<text x="677.3" y="104" class="sub">actual death 75.403y</text>
+<text x="1020" y="380" text-anchor="end" class="sub">Age at generated death event</text>
+</svg>

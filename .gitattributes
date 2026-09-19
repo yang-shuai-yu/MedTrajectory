@@ -1,0 +1,43 @@
+# ---------------------------------------------------------------------------
+# MedTrajectory - .gitattributes
+#
+# Purpose: make line endings deterministic across platforms.
+#
+# Without this, Git on Windows rewrites every LF text file to CRLF on checkout,
+# which produces spurious diffs for anyone working on Windows and can silently
+# change checksums used in freeze manifests.
+# ---------------------------------------------------------------------------
+
+# normalise text files to LF in the repository and in the working tree
+* text=auto eol=lf
+
+# explicit, so the intent survives future edits
+*.py      text eol=lf
+*.sh      text eol=lf
+*.json    text eol=lf
+*.yaml    text eol=lf
+*.yml     text eol=lf
+*.md      text eol=lf
+*.txt     text eol=lf
+*.cff     text eol=lf
+*.ps1     text eol=crlf
+
+# never touch line endings in binaries
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.pdf     binary
+*.svg     text eol=lf
+*.docx    binary
+*.xlsx    binary
+*.npy     binary
+*.npz     binary
+*.bin     binary
+*.pt      binary
+*.pth     binary
+*.ckpt    binary
+*.pkl     binary
+
+# keep generated diffs out of review
+*.ipynb   -diff

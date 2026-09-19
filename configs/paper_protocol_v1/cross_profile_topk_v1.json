@@ -1,0 +1,49 @@
+{
+  "protocol": "paper_protocol_cross_profile_topk_v1",
+  "analysis_status": "secondary_posthoc_cross_profile",
+  "split_manifests": {
+    "val": "results/paper_protocol_v1/cross_profile_topk_20260810/val_shared_landmarks.json",
+    "test": "results/paper_protocol_v1/locked_test_20260809/shared_test_landmarks_exact_seed1337.json"
+  },
+  "canonical_profile": "diagnosis_death",
+  "profiles": {
+    "diagnosis_death": "paper_protocol_v1_locked_test/diagnosis_death",
+    "multitype": "paper_protocol_v1_locked_test/multitype"
+  },
+  "diseases_yaml": "docs/selected_diseases.yaml",
+  "models": [
+    {
+      "name": "P0_seed42",
+      "profile": "diagnosis_death",
+      "checkpoint": "results/paper_protocol_v1/retrain_locked_test_20260808/my1_seed42_all/P0_seed42/risk/checkpoints/best_val_loss.pt"
+    },
+    {
+      "name": "P1_seed42",
+      "profile": "diagnosis_death",
+      "checkpoint": "results/paper_protocol_v1/retrain_locked_test_20260808/my1_seed42_all/P1_seed42/risk/checkpoints/best_val_loss.pt"
+    },
+    {
+      "name": "P2_seed42",
+      "profile": "multitype",
+      "checkpoint": "results/paper_protocol_v1/retrain_locked_test_20260808/my1_seed42_all/P2_seed42/risk/checkpoints/best_val_loss.pt"
+    },
+    {
+      "name": "P3_seed42",
+      "profile": "multitype",
+      "checkpoint": "results/paper_protocol_v1/retrain_locked_test_20260808/my1_seed42_all/P3_seed42/risk/checkpoints/best_val_loss.pt"
+    }
+  ],
+  "topk": [1, 5, 10],
+  "comparisons": [
+    ["P0_seed42", "P2_seed42"],
+    ["P0_seed42", "P3_seed42"],
+    ["P1_seed42", "P2_seed42"],
+    ["P1_seed42", "P3_seed42"]
+  ],
+  "block_size": 128,
+  "batch_size": 128,
+  "bootstrap_replicates": 2000,
+  "seed": 42,
+  "primary_results_untouched": "results/paper_protocol_v1/locked_test_20260809/final_test_shared_exact",
+  "previous_topk_untouched": "results/paper_protocol_v1/topk_addendum_20260810"
+}

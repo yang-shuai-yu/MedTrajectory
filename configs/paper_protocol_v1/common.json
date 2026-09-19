@@ -1,0 +1,59 @@
+{
+  "protocol": "paper_protocol_v1",
+  "launch_state": "prepared_not_started",
+  "split_seed": 1337,
+  "training_seeds": [42, 43, 44],
+  "pretraining": {
+    "entrypoint": "src/semantic_delphi_ukb/train_paper_protocol_pretraining.py",
+    "encoder_family": "causal_delphi",
+    "objective": "all_position_next_event_and_time",
+    "block_size": 128,
+    "static_features": ["sex_id"]
+  },
+  "posttraining": {
+    "entrypoint": "src/semantic_delphi_ukb/train_paper_protocol_risk_heads.py",
+    "initialize_from_pretraining": true,
+    "target_protocol": "paper_censor_aware_v1",
+    "horizons_years": [1, 5, 10],
+    "monotonic_horizon_risk": true,
+    "next_event_loss_weight": 0.2,
+    "head_warmup_iters": 500,
+    "joint_trunk_learning_rate": 0.00003,
+    "joint_head_learning_rate": 0.0003,
+    "checkpoint_selection": "val_loss"
+  },
+  "survival_horizon": {
+    "enabled_experiments": ["P0", "P3"],
+    "entrypoint": "src/semantic_delphi_ukb/train_paper_protocol_survival_horizon.py",
+    "horizons_years": [1, 5, 10],
+    "target_protocol": "paper_censor_aware_v1"
+  },
+  "evaluation": {
+    "primary_auc": "delphi2m_medical_auc",
+    "implementation": "DeLong",
+    "medical_auc_entrypoint": "src/semantic_delphi_ukb/evaluate_paper_protocol_medical_auc.py",
+    "longitudinal_entrypoint": "src/semantic_delphi_ukb/evaluate_paper_protocol_longitudinal.py",
+    "age_groups_years": [50, 55, 60, 65, 70, 75],
+    "stratify_by_sex": true,
+    "longitudinal_input_end": "2020-06-30",
+    "longitudinal_gap": "2020-07-01..2021-06-30",
+    "longitudinal_outcomes": "2021-07-01..2022-07-01",
+    "longitudinal_min_cases": 25,
+    "secondary_metrics": ["AUPRC", "Brier", "calibration_slope", "calibration_intercept"]
+  },
+  "run_contract": {
+    "root": "results/paper_protocol_v1",
+    "required_files": [
+      "resolved_config.json",
+      "source_manifest.json",
+      "stdout.log",
+      "metrics.jsonl",
+      "status.json",
+      "tensorboard",
+      "checkpoints/last.pt",
+      "checkpoints/best_val_loss.pt"
+    ],
+    "resume_required": true,
+    "rank0_writes_only": true
+  }
+}

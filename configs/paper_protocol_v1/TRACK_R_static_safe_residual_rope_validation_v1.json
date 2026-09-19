@@ -1,0 +1,75 @@
+{
+  "experiment_id": "track_r_static_safe_residual_rope_validation_v1",
+  "status": "approved_final_validation_only_rope_experiment",
+  "parent_protocol_id": "track_r_v2_1",
+  "parent_protocol": "configs/paper_protocol_v1/TRACK_R_v2_1.json",
+  "parent_protocol_sha256": "bb477a11ef850f0d190fae8af79605c3e3a686d2549d1f05674da2b895a1ef73",
+  "split": "val",
+  "locked_test_read": false,
+  "seed": 42,
+  "fallback_target": {
+    "model": "A0-TokenStatic",
+    "reuse_existing_checkpoint_and_validation_rows": true,
+    "retrain": false,
+    "registered_macro_auroc": 0.728948,
+    "registered_macro_auprc": 0.154507,
+    "registered_macro_brier": 0.022565,
+    "registered_macro_ece": 0.020165
+  },
+  "architecture": {
+    "base": "A0-TokenStatic",
+    "base_absolute_age_encoding": "delphi_sincos",
+    "base_static_input": "four_token_prefix_with_frozen_temporal_visibility",
+    "base_parameters_initialized_from_existing_a0_and_frozen": true,
+    "clean_stream": "token_only_contextual_stream_with_all_transformer_parameters_shared_with_base",
+    "residual_scope": "clinical_dynamic_query_to_clinical_dynamic_key_only",
+    "excluded_from_residual_scope": ["padding", "no_event", "static_prefix", "dynamic_bos"],
+    "residual_logits": "L_base + alpha * dynamic_pair_mask * (L_rope - L_base)",
+    "alpha_parameterization": "sigmoid_per_layer_per_head",
+    "alpha_initial": 0.01,
+    "alpha_range": [0.0, 1.0],
+    "inner_rope_gate": false,
+    "rope_scales_initial": [0.25, 0.75, 2.0, 4.0],
+    "phase_origin": "recruitment_age",
+    "phase_origin_note": "provenance_and_numerical_centering_only; common-origin subtraction does not change dynamic-dynamic relative RoPE logits"
+  },
+  "controls": [
+    {
+      "name": "A0-TokenStatic",
+      "alpha": 0.0,
+      "training": "reuse_existing"
+    },
+    {
+      "name": "A1-ResidualRoPE-Fixed1",
+      "alpha": 1.0,
+      "training": "train_new_residual_scales_only_on_frozen_a0"
+    },
+    {
+      "name": "A1-ResidualRoPE-Learned",
+      "alpha": "learned_per_layer_per_head",
+      "training": "train_new_alpha_and_residual_scales_only_on_frozen_a0"
+    },
+    {
+      "name": "A1-ResidualRoPE-Learned-Alpha0",
+      "alpha": 0.0,
+      "training": "none; same learned checkpoint with inference override"
+    }
+  ],
+  "reporting": {
+    "aggregation": "macro_over_sex_disease_horizon_age_cells",
+    "metrics": ["AUROC", "AUPRC", "Brier", "ECE"],
+    "paired_patient_bootstrap": true,
+    "per_layer_per_head_alpha": true,
+    "per_layer_per_head_scale": true,
+    "validation_is_selection_biased_descriptive": true,
+    "test_authorized": false
+  },
+  "success_conditions": [
+    "learned candidate macro AUROC is not below the registered A0-TokenStatic fallback target",
+    "learned alpha is not uniformly near zero",
+    "same-checkpoint alpha=0 inference ablation is worse than the learned-alpha inference",
+    "fixed-alpha=1 control and learned-alpha candidate are reported separately to distinguish dynamic-only scope from learned gating",
+    "all comparisons use the same frozen validation landmarks and paired row keys"
+  ],
+  "performance_claim_exclusion": "Recruitment-age phase centering is not a performance hypothesis or an additional source of temporal information."
+}

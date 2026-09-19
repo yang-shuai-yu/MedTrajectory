@@ -1,0 +1,45 @@
+{
+  "experiment_id": "track_r_hybrid_age_poststatic_validation_v1",
+  "status": "approved_validation_only",
+  "parent_protocol_id": "track_r_v2_1",
+  "parent_protocol": "configs/paper_protocol_v1/TRACK_R_v2_1.json",
+  "parent_protocol_sha256": "bb477a11ef850f0d190fae8af79605c3e3a686d2549d1f05674da2b895a1ef73",
+  "split": "val",
+  "locked_test_read": false,
+  "seed": 42,
+  "model": {
+    "name": "CARoPE-HybridAge-PostStatic",
+    "family": "carope",
+    "n_layer": 6,
+    "n_head": 8,
+    "n_embd": 64,
+    "dynamic_context_length": 128,
+    "dynamic_bos_length": 1,
+    "use_age_encoding": true,
+    "absolute_age_encoding": "delphi_sincos",
+    "use_age_rope": true,
+    "relative_age_encoding": "continuous_age_rope",
+    "include_static_prefix": false,
+    "static_conditioning": "categorical-residual",
+    "static_fusion_stage": "post_transformer",
+    "relative_horizon_query": false,
+    "time_gap_loss_weight": 0.0,
+    "horizons_years": [1.0, 5.0, 10.0]
+  },
+  "hypothesis": "Absolute-age Sin/Cos and dynamic-only continuous-age RoPE are complementary when recruitment static covariates are fused after the RoPE trunk.",
+  "primary_comparisons": [
+    "A0-TokenStatic",
+    "A0-noStatic",
+    "A1-noStatic",
+    "A1-DynamicRoPE-PostStatic",
+    "Med-BERT-Paper"
+  ],
+  "reporting": {
+    "aggregation": "macro_over_sex_disease_horizon_age_cells",
+    "metrics": ["AUROC", "AUPRC", "Brier", "ECE"],
+    "paired_patient_bootstrap": true,
+    "validation_is_selection_biased_descriptive": true,
+    "included_in_original_factorial_2x2": false,
+    "test_authorized": false
+  }
+}

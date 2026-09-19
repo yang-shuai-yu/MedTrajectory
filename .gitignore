@@ -1,0 +1,77 @@
+﻿# ---------------------------------------------------------------------------
+# MedTrajectory - .gitignore
+# 2026-09-16, from the open-source readiness audit
+# (docs/OPEN_SOURCE_READINESS_20260916.md).
+#
+# Principle: credentialed data and bulk run artifacts are never committed.
+# NOTE: use "dir/*" (not "dir/") wherever a file inside must be re-included,
+# because git cannot re-include a file whose parent directory is excluded.
+# ---------------------------------------------------------------------------
+
+# --- credentialed / restricted data ----------------------------------------
+data/*
+!data/README.md
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# --- bulk run artifacts and archives ---------------------------------------
+remote_archives/
+archives/
+dist/
+assets/
+results/*
+!results/README.md
+
+# --- session / audit scratch ----------------------------------------------
+.codex_tmp/
+.tmp_trackg_slide/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# --- patient-level prediction dumps (re-identifiable with index CSVs) ------
+raw_predictions*.csv
+patient_rows.jsonl
+
+# --- model checkpoints and binary artifacts --------------------------------
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.bin
+*.npz
+*.npy
+*.h5
+*.safetensors
+
+# --- secrets / credentials -------------------------------------------------
+.env
+.env.*
+*.pem
+*.key
+secrets.json
+
+# --- internal process notes (contain internal paths and usernames) ---------
+/HANDOFF_*.md
+/*.tar.gz
+
+# --- OS / editor -----------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# --- paper build products --------------------------------------------------
+~$*.docx
+~$*.xlsx
+
+# --- working documents (not for publication) --------------------------------
+/UPLOAD_MANIFEST.md
+
+
+/.internal/
+

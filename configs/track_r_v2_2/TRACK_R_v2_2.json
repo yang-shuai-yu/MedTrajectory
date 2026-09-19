@@ -1,0 +1,138 @@
+{
+  "extends": "../paper_protocol_v1/TRACK_R_v2_1.json",
+  "protocol_id": "track_r_v2_2",
+  "data_protocol_id": "track_r_v2_1",
+  "status": "ready_for_training",
+  "output_root": "results/track_r_v2_2",
+  "shared_validation_landmark_manifest": "results/track_r_v2_1/manifests/val_shared_landmarks.json",
+  "locked_test_read": false,
+  "test_authorized": false,
+  "seeds": [42, 43, 44],
+  "run_tag_template": "seed{seed}_additiverope1",
+  "architecture": {
+    "n_layer": 6,
+    "n_head": 8,
+    "n_embd": 64,
+    "head_dim": 8
+  },
+  "training_budget": {
+    "pretraining_max_iters": 100000,
+    "risk_max_iters": 10000,
+    "pretraining_time_gap_loss_weight": 0.0,
+    "risk_next_event_loss_weight": 0.2,
+    "risk_horizon_loss_weight": 1.0,
+    "risk_time_gap_loss_weight": 0.0
+  },
+  "checkpoint_contract": {
+    "main_nll": "pretraining/{model}/checkpoints/last.pt",
+    "risk_initialization": "pretraining/{model}/checkpoints/last.pt",
+    "clinical_auroc": "risk/{model}/checkpoints/last.pt",
+    "best_checkpoints_are_process_records_only": true,
+    "risk_checkpoint_must_not_be_used_for_main_nll": true
+  },
+  "transformer_variants": [
+    {
+      "name": "A0",
+      "use_age_encoding": true,
+      "use_age_rope": false,
+      "age_rope_variant": "legacy",
+      "static_prefix": true
+    },
+    {
+      "name": "A2",
+      "use_age_encoding": true,
+      "use_age_rope": true,
+      "age_rope_variant": "additive_v2_2",
+      "static_prefix": true
+    },
+    {
+      "name": "A2-noAge",
+      "use_age_encoding": false,
+      "use_age_rope": true,
+      "age_rope_variant": "additive_v2_2",
+      "static_prefix": true,
+      "interpretation": "internal_absolute_age_ablation_not_historical_A1_root_cause"
+    }
+  ],
+  "wavelength_contract": {
+    "source_split": "train",
+    "positive_gap_mask": "exact_time_loss_mask",
+    "lower_bound": "max(2*P1_gap_days,7_days)",
+    "upper_bound": "1.5*P95_gap_days",
+    "count": 32,
+    "spacing": "log",
+    "allocation": "interleaved_across_8_heads_4_frequencies_each",
+    "manifest": "results/track_r_v2_2/manifests/rope_wavelengths.json",
+    "expected_sha256": "20ab40a259c95dd816af60e260ad6599ad2fc91dc8866eabfa6c204f61d01ab4",
+    "scale_factor_bounds": [0.5, 2.0],
+    "require_manifest_log_scale_match": true
+  },
+  "pretraining_fidelity": {
+    "primary_metric": "observed_positive_gap_exponential_nll",
+    "t_min": 0.1,
+    "nll_equivalence_atol": 0.000001,
+    "secondary_hit_at_k": [1, 5, 10],
+    "split": "val",
+    "window_select": "right",
+    "padding": "none",
+    "no_event_token_rate": 0,
+    "row_key": [
+      "patient_index",
+      "original_source_event_ordinal",
+      "original_target_event_ordinal",
+      "context_window_start",
+      "local_source_position"
+    ],
+    "checkpoint_stage": "pretraining",
+    "checkpoint_name": "last.pt",
+    "primary_contrast": {
+      "left": "A2",
+      "right": "A0",
+      "direction": "lower",
+      "ci_gate": "upper_below_zero",
+      "required_seed_directions": 3
+    }
+  },
+  "mechanism_gate": {
+    "diagnostic_patient_prefix_count": 32,
+    "scale_saturation_bounds": [0.505, 1.98],
+    "maximum_saturated_fraction_exclusive": 0.5,
+    "relative_logit_amplitude": "median(abs(rope_logits-base_logits)/(abs(base_logits)+1e-8))",
+    "minimum_relative_logit_amplitude_exclusive": 0.001,
+    "aggregation": "per_seed_scalar_not_cross_seed_average",
+    "required_seed_passes": 3
+  },
+  "clinical_gate": {
+    "metric": "macro_auroc",
+    "noninferiority_margin": -0.005,
+    "checkpoint_stage": "risk",
+    "checkpoint_name": "last.pt",
+    "seed_aggregation": "bootstrap_each_seed_delta_then_average_deltas",
+    "contrast": {"left": "A2", "right": "A0"}
+  },
+  "bootstrap_resample": {
+    "unit": "patient",
+    "replicates": 10000,
+    "seed": 20260815,
+    "percentile": [2.5, 97.5],
+    "shared_index_across_seeds": true,
+    "per_seed_delta_then_average_deltas": true
+  },
+  "result_integrity": {
+    "gate_outcome_is_final": true,
+    "report_regardless_of_pass_or_fail": true,
+    "rerun_only_for_implementation_bugs": true,
+    "no_post_hoc_threshold_or_parameter_change": true,
+    "rerun_requires_audit_log": true
+  },
+  "descriptive_contrasts": [
+    {
+      "name": "A2_minus_A2_noAge",
+      "metric": "observed_positive_gap_exponential_nll",
+      "left": "A2",
+      "right": "A2-noAge",
+      "formal_gate": false
+    }
+  ],
+  "protocol_manifest_sha256": "9a62db2f7e8899044d06f01ecfa14480b37b34359aefc45106e347cdfd1b9fd5"
+}

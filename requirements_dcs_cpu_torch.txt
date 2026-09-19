@@ -1,0 +1,11 @@
+# CPU checkpoint pipeline requirements for DCS Cloud.
+#
+# Recommended installation:
+#   python scripts/setup_dcs_cpu_venv.py --with-torch
+#
+# That script installs numpy from the normal Python package index first, then
+# installs torch from the PyTorch CPU wheel index. Do not apply the PyTorch
+# index globally to this whole file, otherwise numpy may not be found.
+
+numpy>=1.26
+torch>=2.7

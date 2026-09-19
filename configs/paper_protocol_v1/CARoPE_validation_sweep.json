@@ -1,0 +1,49 @@
+{
+  "experiment_id": "CARoPE_validation_component_sweep_v1",
+  "status": "prepared_not_started",
+  "data_policy": "train_val_only_until_gate",
+  "data_dir": "data/paper_protocol_v1/multitype",
+  "diseases_yaml": "docs/selected_diseases.yaml",
+  "entrypoint": "src/semantic_delphi_ukb/train_car_rope.py",
+  "pretraining_entrypoint": "src/semantic_delphi_ukb/train_car_rope_pretraining.py",
+  "training_stages": ["pretraining", "horizon_validation_finetuning"],
+  "output_root": "results/paper_protocol_v1/car_rope_validation_20260810",
+  "seed": 42,
+  "horizons_years": [1.0, 5.0],
+  "variants": [
+    {
+      "name": "A0_sincos_control",
+      "use_age_encoding": "true",
+      "use_age_rope": "false",
+      "use_relative_horizon_query": "false",
+      "time_gap_loss_weight": 0.0
+    },
+    {
+      "name": "A1_car_rope_trunk",
+      "use_age_encoding": "false",
+      "use_age_rope": "true",
+      "use_relative_horizon_query": "false",
+      "time_gap_loss_weight": 0.0
+    },
+    {
+      "name": "A2_relative_horizon_query",
+      "use_age_encoding": "false",
+      "use_age_rope": "true",
+      "use_relative_horizon_query": "true",
+      "time_gap_loss_weight": 0.0
+    },
+    {
+      "name": "A3_full_carope",
+      "use_age_encoding": "false",
+      "use_age_rope": "true",
+      "use_relative_horizon_query": "true",
+      "time_gap_loss_weight": 0.2
+    }
+  ],
+  "validation_gate": {
+    "primary": "paired validation horizon AUC and AUPRC",
+    "secondary": ["time_gap_mae", "brier", "ece", "monotonicity"],
+    "minimum_requirement": "A3 beats A0 on preregistered paired validation criteria; otherwise report CARoPE as negative ablation",
+    "test_allowed": false
+  }
+}

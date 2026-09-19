@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="430" viewBox="0 0 1280 430">
+<rect width="100%" height="100%" fill="#fbfaf7"/>
+<style>text{font-family:'Microsoft YaHei',Arial,sans-serif;fill:#172033;font-size:14px}.title{font-size:25px;font-weight:700}.sub{fill:#596275;font-size:13px}.label{font-size:12px}.axis{stroke:#8b95a7;stroke-width:2}.grid{stroke:#e5e7eb;stroke-width:1}</style>
+<rect x="1101.2" y="78" width="113.8" height="237" fill="#e0f2fe" opacity="0.55"/>
+<text x="85" y="38" class="title">具体患者未来轨迹 demo: CKD-FUTURE-MODERN-346</text>
+<text x="85" y="62" class="sub">基线左侧为模型可见历史；右侧为推理时隐藏、事后用于对照的真实未来轨迹。</text>
+<line x1="85" y1="315" x2="1215" y2="315" class="axis"/>
+<line x1="1101.2" y1="70" x2="1101.2" y2="327" stroke="#0891b2" stroke-width="3"/>
+<text x="1109.2" y="63" class="sub">baseline 61.684y</text>
+<line x1="85.0" y1="78" x2="85.0" y2="323" class="grid"/>
+<text x="85.0" y="345" text-anchor="middle" class="sub">41</text>
+<line x1="232.4" y1="78" x2="232.4" y2="323" class="grid"/>
+<text x="232.4" y="345" text-anchor="middle" class="sub">44</text>
+<line x1="379.8" y1="78" x2="379.8" y2="323" class="grid"/>
+<text x="379.8" y="345" text-anchor="middle" class="sub">47</text>
+<line x1="527.2" y1="78" x2="527.2" y2="323" class="grid"/>
+<text x="527.2" y="345" text-anchor="middle" class="sub">50</text>
+<line x1="674.6" y1="78" x2="674.6" y2="323" class="grid"/>
+<text x="674.6" y="345" text-anchor="middle" class="sub">53</text>
+<line x1="822.0" y1="78" x2="822.0" y2="323" class="grid"/>
+<text x="822.0" y="345" text-anchor="middle" class="sub">56</text>
+<line x1="969.3" y1="78" x2="969.3" y2="323" class="grid"/>
+<text x="969.3" y="345" text-anchor="middle" class="sub">59</text>
+<line x1="1116.7" y1="78" x2="1116.7" y2="323" class="grid"/>
+<text x="1116.7" y="345" text-anchor="middle" class="sub">62</text>
+<text x="1215" y="369" text-anchor="end" class="sub">Age (years)</text>
+<circle cx="139.0" cy="172" r="6" fill="#2563eb" stroke="#475569" stroke-width="2"/>
+<line x1="139.0" y1="178" x2="139.0" y2="315" stroke="#2563eb" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<text x="139.0" y="154" text-anchor="middle" class="label">42.100y diag:H65</text>
+<circle cx="140.0" cy="232" r="6" fill="#d97706" stroke="#475569" stroke-width="2"/>
+<line x1="140.0" y1="238" x2="140.0" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="221.0" cy="232" r="6" fill="#d97706" stroke="#475569" stroke-width="2"/>
+<line x1="221.0" y1="238" x2="221.0" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="222.6" cy="172" r="6" fill="#2563eb" stroke="#475569" stroke-width="2"/>
+<line x1="222.6" y1="178" x2="222.6" y2="315" stroke="#2563eb" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<text x="222.6" y="154" text-anchor="middle" class="label">43.800y diag:H91</text>
+<circle cx="315.9" cy="172" r="6" fill="#2563eb" stroke="#475569" stroke-width="2"/>
+<line x1="315.9" y1="178" x2="315.9" y2="315" stroke="#2563eb" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<text x="315.9" y="154" text-anchor="middle" class="label">45.700y diag:I25</text>
+<circle cx="316.2" cy="232" r="6" fill="#d97706" stroke="#475569" stroke-width="2"/>
+<line x1="316.2" y1="238" x2="316.2" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="615.6" cy="172" r="6" fill="#2563eb" stroke="#475569" stroke-width="2"/>
+<line x1="615.6" y1="178" x2="615.6" y2="315" stroke="#2563eb" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<text x="615.6" y="154" text-anchor="middle" class="label">51.800y diag:L02</text>
+<circle cx="615.9" cy="232" r="6" fill="#d97706" stroke="#475569" stroke-width="2"/>
+<line x1="615.9" y1="238" x2="615.9" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="1013.5" cy="172" r="6" fill="#2563eb" stroke="#475569" stroke-width="2"/>
+<line x1="1013.5" y1="178" x2="1013.5" y2="315" stroke="#2563eb" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<text x="1013.5" y="154" text-anchor="middle" class="label">59.899y diag:E86</text>
+<circle cx="1014.4" cy="232" r="6" fill="#d97706" stroke="#475569" stroke-width="2"/>
+<line x1="1014.4" y1="238" x2="1014.4" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="1038.5" cy="232" r="6" fill="#d97706" stroke="#475569" stroke-width="2"/>
+<line x1="1038.5" y1="238" x2="1038.5" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="1062.7" cy="172" r="6" fill="#2563eb" stroke="#475569" stroke-width="2"/>
+<line x1="1062.7" y1="178" x2="1062.7" y2="315" stroke="#2563eb" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<text x="1062.7" y="154" text-anchor="middle" class="label">60.901y diag:I21</text>
+<circle cx="1064.3" cy="232" r="6" fill="#d97706" stroke="#475569" stroke-width="2"/>
+<line x1="1064.3" y1="238" x2="1064.3" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="1086.1" cy="232" r="6" fill="#d97706" stroke="#475569" stroke-width="2"/>
+<line x1="1086.1" y1="238" x2="1086.1" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="1087.2" cy="172" r="6" fill="#2563eb" stroke="#475569" stroke-width="2"/>
+<line x1="1087.2" y1="178" x2="1087.2" y2="315" stroke="#2563eb" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<text x="1087.2" y="154" text-anchor="middle" class="label">61.399y diag:D50</text>
+<circle cx="1094.7" cy="232" r="6" fill="#d97706" stroke="#475569" stroke-width="2"/>
+<line x1="1094.7" y1="238" x2="1094.7" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="1095.1" cy="232" r="6" fill="#d97706" stroke="#475569" stroke-width="2"/>
+<line x1="1095.1" y1="238" x2="1095.1" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="1097.0" cy="172" r="6" fill="#2563eb" stroke="#475569" stroke-width="2"/>
+<line x1="1097.0" y1="178" x2="1097.0" y2="315" stroke="#2563eb" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<text x="1097.0" y="154" text-anchor="middle" class="label">61.599y diag:I25</text>
+<circle cx="1101.2" cy="232" r="6" fill="#d97706" stroke="#475569" stroke-width="2"/>
+<line x1="1101.2" y1="238" x2="1101.2" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="1102.0" cy="172" r="8" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<line x1="1102.0" y1="180" x2="1102.0" y2="315" stroke="#2563eb" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<text x="1102.0" y="154" text-anchor="middle" class="label">61.700y diag:N18</text>
+<circle cx="1103.5" cy="232" r="8" fill="#d97706" stroke="#ffffff" stroke-width="2"/>
+<line x1="1103.5" y1="240" x2="1103.5" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="1114.7" cy="232" r="8" fill="#d97706" stroke="#ffffff" stroke-width="2"/>
+<line x1="1114.7" y1="240" x2="1114.7" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="1118.4" cy="232" r="8" fill="#d97706" stroke="#ffffff" stroke-width="2"/>
+<line x1="1118.4" y1="240" x2="1118.4" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="1123.1" cy="232" r="8" fill="#d97706" stroke="#ffffff" stroke-width="2"/>
+<line x1="1123.1" y1="240" x2="1123.1" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="1123.4" cy="232" r="8" fill="#d97706" stroke="#ffffff" stroke-width="2"/>
+<line x1="1123.4" y1="240" x2="1123.4" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="1126.6" cy="232" r="8" fill="#d97706" stroke="#ffffff" stroke-width="2"/>
+<line x1="1126.6" y1="240" x2="1126.6" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="1142.6" cy="232" r="8" fill="#d97706" stroke="#ffffff" stroke-width="2"/>
+<line x1="1142.6" y1="240" x2="1142.6" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="1145.6" cy="232" r="8" fill="#d97706" stroke="#ffffff" stroke-width="2"/>
+<line x1="1145.6" y1="240" x2="1145.6" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="1151.1" cy="172" r="8" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<line x1="1151.1" y1="180" x2="1151.1" y2="315" stroke="#2563eb" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<text x="1151.1" y="154" text-anchor="middle" class="label">62.700y diag:I95</text>
+<circle cx="1151.1" cy="172" r="8" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<line x1="1151.1" y1="180" x2="1151.1" y2="315" stroke="#2563eb" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<text x="1151.1" y="154" text-anchor="middle" class="label">62.700y diag:N17</text>
+<circle cx="1152.0" cy="232" r="8" fill="#d97706" stroke="#ffffff" stroke-width="2"/>
+<line x1="1152.0" y1="240" x2="1152.0" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<circle cx="1164.3" cy="112" r="8" fill="#111827" stroke="#ffffff" stroke-width="2"/>
+<line x1="1164.3" y1="120" x2="1164.3" y2="315" stroke="#111827" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+<text x="1164.3" y="94" text-anchor="middle" class="label">62.968y death:E14</text>
+<circle cx="85" cy="386" r="6" fill="#2563eb"/>
+<text x="99" y="391" class="sub">诊断</text>
+<circle cx="235" cy="386" r="6" fill="#d97706"/>
+<text x="249" y="391" class="sub">操作</text>
+<circle cx="385" cy="386" r="6" fill="#be123c"/>
+<text x="399" y="391" class="sub">癌症登记</text>
+<circle cx="535" cy="386" r="6" fill="#111827"/>
+<text x="549" y="391" class="sub">死亡登记</text>
+</svg>

@@ -1,0 +1,9 @@
+{
+  "experiment_id": "P0_delphi_compatible_sincos",
+  "dataset_profile": "diagnosis_death",
+  "data_dir": "data/paper_protocol_v1/diagnosis_death",
+  "encoder": "causal_delphi",
+  "age_sincos": true,
+  "continuous_age_rope": false,
+  "role": "internally_reproduced_delphi_compatible_baseline"
+}

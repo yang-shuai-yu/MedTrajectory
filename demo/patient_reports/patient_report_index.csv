@@ -1,0 +1,5 @@
+case_id,patient_index,baseline_age_years,target_token,target_rank,top_selected_disease,top_selected_risk_5y,top_selected_risk_10y,report_md
+CKD-FUTURE-TTE-346,346,61.68377823408624,diag:N18,1,Chronic kidney disease (N18),0.003833618015050888,0.003298350377008319,demo\patient_reports\CKD-FUTURE-TTE-346_patient_report.md
+COPD-FUTURE-TTE-411,411,75.00273785078713,diag:J44,2,Chronic obstructive pulmonary disease (J44),0.005641526076942682,0.010247992351651192,demo\patient_reports\COPD-FUTURE-TTE-411_patient_report.md
+CVD-FUTURE-TTE-356,356,67.86858316221766,diag:I63,1,Cerebrovascular disease (I60-I69),0.2967292368412018,0.25918227434158325,demo\patient_reports\CVD-FUTURE-TTE-356_patient_report.md
+IHD-FUTURE-TTE-497,497,63.181382614647504,diag:I25,1,Ischemic heart disease (I20-I25),0.8182005882263184,0.8105000257492065,demo\patient_reports\IHD-FUTURE-TTE-497_patient_report.md

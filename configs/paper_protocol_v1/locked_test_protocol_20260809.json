@@ -1,0 +1,28 @@
+{
+  "protocol": "paper_medical_control_v1",
+  "manifest_version": "paper_medical_control_locked_test_v1",
+  "split": "test",
+  "models": ["P0_seed42", "P2_seed42", "P3_seed42"],
+  "model_data_profiles": {
+    "P0_seed42": "diagnosis_death",
+    "P2_seed42": "multitype",
+    "P3_seed42": "multitype"
+  },
+  "model_mode": "explicit",
+  "horizons_years": [1, 5, 10],
+  "age_groups_years": [50, 55, 60, 65, 70, 75],
+  "age_bin_width_years": 5,
+  "sex_stratified": true,
+  "landmark_seed": 1337,
+  "landmark_rng": "SeedSequence([seed, 9173])",
+  "landmark_selection": "one_random_valid_position_per_patient_age_bin",
+  "left_window_padding": "random",
+  "case_control": "paper_censor_aware_v1",
+  "calibration_bins": 10,
+  "bootstrap_replicates": 1000,
+  "bootstrap_seed": 42,
+  "holm_alpha": 0.05,
+  "checkpoint_selection": "best_val_loss_fixed_before_test",
+  "checkpoint_training_excludes_test": true,
+  "test_evaluation_once": true
+}

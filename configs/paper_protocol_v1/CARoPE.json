@@ -1,0 +1,15 @@
+{
+  "experiment_id": "CARoPE_multiscale_relative_age_v1",
+  "dataset_profile": "multitype",
+  "data_dir": "data/paper_protocol_v1/multitype",
+  "encoder": "car_rope",
+  "age_sincos": false,
+  "continuous_age_rope": true,
+  "rope_base": 10000.0,
+  "rope_scales": [0.25, 1.0, 4.0],
+  "rope_initial_gate": 0.1,
+  "time_gap_loss_weight": 0.2,
+  "horizon_years": [1.0, 5.0],
+  "role": "new_method_prepared_not_started",
+  "status": "code_only_waiting_for_review"
+}
