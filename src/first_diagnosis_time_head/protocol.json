@@ -1,0 +1,64 @@
+{
+  "id": "first_diagnosis_time_20261022_r2",
+  "predecessor": "r1 was a deployment/interface smoke only, never fitted. r2 casts all likelihood inputs to FP64 and avoids accumulating CPU nice increments on restarts.",
+  "methods": ["gpt", "bert", "medbert", "trajgpt", "ethos"],
+  "scope": "Independent first-diagnosis time readouts over accepted frozen seed42 backbones. These are new time adaptations, not native time predictions or repairs to original result files.",
+  "seed": 20261022,
+  "input_release": "ukb_retrained_20261014_r1",
+  "snapshot_sha256": "ccc2e22f48391eb6c28720927856b23cfc0fa59b650b1961b044833abefca019",
+  "horizon_days": 3652.5,
+  "cut": {"baseline_fraction": 0.65, "min_history_events": 8, "min_future_events": 3},
+  "target": "Waiting days from the original clinical cut to the first subsequent diagnosis within ten years. Position strictly exceeds cut; same-day and repeated diagnoses are retained. This is not first clinical event, first-ever disease incidence, or a one-year horizon.",
+  "censoring": "Observed first diagnosis is an event. Otherwise right-censor at min(3652.5, administrative followup minus cut), floored at zero. Zero-exposure censored windows supply no loss. Administrative followup is only a recording-availability proxy; death is not modelled as a competing risk.",
+  "input": "Only diagnosis history through cut and its observed ages. Frozen native terminal representation plus six prefix-only covariates: log1p(history count), cut age/36525, log1p(time since last diagnosis), log1p(history span), log1p(median adjacent diagnosis gap), empty-history indicator. No future events, targets, administrative followup, or procedure/cancer/death token features.",
+  "partition": {
+    "train_max": 20000,
+    "selection_max": 2048,
+    "selection": "Deterministic SHA256(seed, split, patient_index) ordering, fixed before fitting. Same patients for all five methods; no outcome-based selection.",
+    "val": "All original1000 validation cases, excluded from model-selection set",
+    "test": "All original1669 test cases, accessed separately per method only after validation integration acceptance and freezing that method's selected checkpoint"
+  },
+  "model": {
+    "backbone": "Accepted seed42, frozen eval mode, original vocabulary/context and terminal readout semantics",
+    "head": "Train-feature standardization, Linear(width+6,64), GELU, Linear(64,2); separate trainable weights and normalization for every model",
+    "distribution": "Z ~ Normal(mu,sigma), T=max(0,expm1(Z)); point mass at zero, continuous positive density, and right-censored survival likelihood. sigma=0.05+softplus(raw), capped at5 for numerical stability.",
+    "output": "20 independent keyed distribution draws per patient; draws beyond ten years are unavailable rather than clipped to the horizon. Also report a separately named deterministic median-time MAE on observed targets.",
+    "shared_trained_parameters": false
+  },
+  "training": {
+    "steps": 1500,
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "gradient_clip": 5.0,
+    "checkpoint_interval": 100,
+    "selection": "Lowest censored validation NLL at steps100,200,...,1500; no test-based selection",
+    "objective": "Per-patient mean negative log likelihood, including same-day mass and right censoring",
+    "precision": "CPU FP32 representation and head; likelihood calculations FP64",
+    "recovery": "Atomic immutable feature chunks; full head, optimizer, step, Python/NumPy/Torch and sampler RNG checkpoints; exact update replay gate"
+  },
+  "evaluation": {
+    "rollouts": 20,
+    "sampling_seed": 20261022,
+    "primary": "First-diagnosis time MAE in days: mean available-draw absolute error per patient, then mean over patients with observed truth and at least one within-window draw",
+    "availability": "Mean per-patient fraction of paired observed truth and within-window predictions over all cohort patients; also report patients with truth and with any paired draw",
+    "secondary": "Deterministic predicted median MAE on all observed first-diagnosis targets, separately labelled and never silently substituted for sampled MAE",
+    "baseline": "Training observed-target median with MAE on the same paired patients and on all observed-target patients; descriptive conditional-positive baseline, not a survival model",
+    "acceptance": "Source/weight identity, no-future-input gate, finite losses, exact resume replay, independent truth/censor reconstruction and metrics recomputation. Integration acceptance is not evidence of clinical superiority.",
+    "comparison": "Native A0/A2/Delphi/TCF numbers require their recorded availability and common paired patients for superiority claims. This release does not mix deterministic-median errors with native sampled errors or claim that original diagnosis generation acquired a clock."
+  },
+  "resources": {
+    "host": "my3",
+    "cpu_threads": 1,
+    "nice_increment": 10,
+    "minimum_available_ram_bytes": 8589934592,
+    "disk_reserve_bytes": 10737418240,
+    "feature_chunk_size": 128,
+    "worker_retries_after_infrastructure_exit": 2,
+    "gpu": false
+  },
+  "shutdown": "Detached remote supervisor and workers, closed stdin, remote logs, PID/starttime/boot identity checks and per-method locks. Local shutdown/SSH loss does not stop work. Remote shutdown requires relaunch and resumes committed chunks/checkpoints; computation cannot continue while the server is off.",
+  "limitations": "Frozen retrospective cut conditions on future clinical-record availability. A20k training subset is a bounded first adaptation, not full-backbone retraining. Administrative censoring and a single lognormal family may be imperfect; retain real errors and availability even if model ranking changes.",
+  "registration": "Fixed before this fitting, after earlier seed42 test aggregates were already known; not blinded preregistration. No ranking constraint or random perturbation of reported metrics.",
+  "privacy": "Patient records, representations, checkpoints and predictions remain on the server. Only aggregate metrics, hashes and process receipts may be collected. No manuscript changes before result review."
+}

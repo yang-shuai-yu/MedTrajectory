@@ -23,12 +23,41 @@ retrains the same architecture on MIMIC-IV with a dataset-specific vocabulary.
 |---|---|
 | `src/semantic_delphi_ukb/` | UK Biobank pipeline: models, training, evaluation, the Track R / Track G contracts, statistical inference, baselines |
 | `src/medtrajectory_mimic/` | MIMIC-IV pipeline: dataset construction, semantic initialisation, training drivers, generation and risk evaluation, paired analysis |
+| `src/first_diagnosis_time_head/` | Independent first-diagnosis time head for the five models without operable native continuous time (Table III time column, Table S13e) |
 | `scripts/` | Entry points and launchers (`.py` for analysis/evaluation, `.sh` for training queues) |
 | `configs/` | Protocol definitions (clinical outcomes, horizons, landmarks, vocabulary) |
 | `tests/` | Unit and contract tests |
 | `demo/` | De-identified patient-level demonstration artefacts (`eid_redacted: true`) |
-| `docs/` | Data access statement; further documentation to be added |
-| `supplementary/` | Full supplementary material (DOCX) and supplementary tables (XLSX) for the manuscript |
+| `docs/` | Data access statement, reproduction guide and metric provenance |
+| `results/aggregate/` | Aggregate numerical summaries behind the manuscript tables (across-seed means, paired intervals, denominators) |
+| `supplementary/v14_submission/` | Manuscript and supplementary material as submitted (Tables I–IV; Tables S1–S12 and S13a–S13f) |
+| `supplementary/` | The above, plus the earlier long-form supplementary material (S1–S33) retained for protocol detail |
+
+---
+
+## Manuscript artefacts
+
+Where each reported number comes from. `T` = table in the manuscript, `S` = supplementary.
+
+| Manuscript item | Aggregate source | Producing code |
+|---|---|---|
+| T I — event-space expansion | archived historical run | `src/semantic_delphi_ukb/` (Track R / Track G) |
+| T II — next-diagnosis prediction (N1) | archived paired statistics | `src/semantic_delphi_ukb/`, `scripts/` |
+| T III — untimed diagnosis generation + ten-year timing | archived paired statistics | `src/semantic_delphi_ukb/rollout_generation_benchmark.py` |
+| T III time column, S13e — first-diagnosis time | archived timed evaluation | `src/first_diagnosis_time_head/` (five methods), native samplers (MT, Delphi, TCF) |
+| T IV, S3 — corrected fixed-horizon risk | `results/aggregate/risk_corrected_configurations.csv`, `risk_noninferiority.json` | `src/semantic_delphi_ukb/` risk evaluation |
+| S2 — paired generation differences | archived paired statistics | `scripts/` paired analysis |
+| S5a–S5b — historical-gap strata | `results/aggregate/historical_gap_all_contrasts.csv` | `scripts/` paired analysis |
+| S6–S8, Fig. 5 — MIMIC transfer | `results/aggregate/transfer_rollout_mean_sd.csv`, `transfer_rollout_paired_contrasts.csv` | `src/medtrajectory_mimic/` |
+| S13a–S13f — diagnosis-only regime | archived paired statistics | `scripts/` paired analysis |
+| Fig. 3, S7a–S7b — death tokens and mortality heads | `results/aggregate/death_blocking.csv`, `mortality_head_assessment.json` | `scripts/` death-mechanism analysis |
+| Figs. S3–S6 — full-budget heatmaps | `results/aggregate/heatmap_values.csv` | `src/` + `scripts/` |
+
+Two naming conventions are used interchangeably in the code base: **Track R / Track G**
+(the frozen protocol names used in `configs/` and `src/`) and **multitype-generation /
+diagnosis-only** (the wording used in the manuscript). Track G is the legacy locked-test
+multitype-generation protocol; the N1 and G1 readouts reported in the manuscript are the
+diagnosis-only evaluations.
 
 ---
 

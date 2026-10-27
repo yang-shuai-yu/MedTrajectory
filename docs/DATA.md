@@ -52,8 +52,8 @@ the scripts above once you have the underlying data.
 
 ## 4. Expected environment variables
 
-After the path-configuration refactor (see `UPLOAD_MANIFEST.md` §5.1) the code
-resolves paths through:
+Path configuration is centralised: no location is hard-coded, and every path is
+resolved through the environment variables below.
 
 | Variable | Meaning | Default |
 |---|---|---|

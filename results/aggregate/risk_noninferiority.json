@@ -1,0 +1,38 @@
+{
+  "original": {
+    "per_seed_delta": [
+      0.012933698321249798,
+      -0.01697053316634778,
+      0.01800841457976421
+    ],
+    "mean_delta": 0.0046571932448887425,
+    "ci95_low": -0.004815386154326217,
+    "ci95_high": 0.009809761207368277,
+    "bootstrap": 10000,
+    "seed": 20260815,
+    "margin": -0.005,
+    "noninferiority_passed": true,
+    "patients": 4721,
+    "rows": 262200,
+    "reference_max_error_16_replicates": 0.0
+  },
+  "original_reported_six_decimal_result_reproduced": true,
+  "corrected": {
+    "per_seed_delta": [
+      0.012424708946596308,
+      -0.018108205973092262,
+      0.017361960155732326
+    ],
+    "mean_delta": 0.0038928210430787904,
+    "ci95_low": -0.005792191759142495,
+    "ci95_high": 0.00905860438129779,
+    "bootstrap": 10000,
+    "seed": 20260815,
+    "margin": -0.005,
+    "noninferiority_passed": false,
+    "patients": 4668,
+    "rows": 260110,
+    "reference_max_error_16_replicates": 0.0
+  },
+  "final_inference": true
+}

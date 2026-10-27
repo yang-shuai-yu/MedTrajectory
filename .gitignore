@@ -23,6 +23,9 @@ dist/
 assets/
 results/*
 !results/README.md
+# paper aggregate summaries (non-identifying) are published under results/aggregate/
+!results/aggregate/
+!results/aggregate/*
 
 # --- session / audit scratch ----------------------------------------------
 .codex_tmp/
@@ -74,4 +77,5 @@ desktop.ini
 
 
 /.internal/
+
 
