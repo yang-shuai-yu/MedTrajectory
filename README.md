@@ -26,6 +26,10 @@ and returns sampled future events with timing and a termination reason. The
 example is synthetic; this interface does not output calibrated disease or
 mortality risks. It needs no training data or embedding API to run.
 
+The [MedTrajectory skill](skills/medtrajectory/SKILL.md) downloads a fixed,
+hash-verified runtime and invokes the same inference entry point with local JSON
+input/output. Its synthetic demo runs the trained model on a new input.
+
 ```bash
 python -m pip install -r inference/requirements.txt
 python inference/predict.py --input inference/examples/synthetic_history.json --output generated.json

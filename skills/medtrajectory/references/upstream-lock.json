@@ -1,0 +1,103 @@
+{
+  "repository": "yang-shuai-yu/MedTrajectory",
+  "commit": "3e0acac344bb1eefe3babedd2706adac1a11c89c",
+  "model_id": "medtrajectory-ukb-a2-seed42-generation-v1",
+  "checked_on": "2026-11-26",
+  "files": [
+    {
+      "path": "LICENSE",
+      "size": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "NOTICE",
+      "size": 1426,
+      "sha256": "11034e52ee38ce8b1b3d84f61fb100e41c7e0b89163d3d0109d64e1454aa5c66"
+    },
+    {
+      "path": "CITATION.cff",
+      "size": 2141,
+      "sha256": "a7b2c08c2d3e63477a648de63eae664080ac6a41b5bf24b2d339cf7eb6bfb6e2"
+    },
+    {
+      "path": "inference/README.md",
+      "size": 8473,
+      "sha256": "e51d4034e3693ab1ff02c27d45fb3999d082e4999a8bddae6cbce6713ff9a4af"
+    },
+    {
+      "path": "inference/predict.py",
+      "size": 11429,
+      "sha256": "4977122cc1a2092b70d2b92f368aa0f3b8c5c1e04434d655547cc22f01213da1"
+    },
+    {
+      "path": "inference/requirements.txt",
+      "size": 164,
+      "sha256": "3e7c5babdbf9904c2cc4ff43917b6dc5d53bf346703439565e4ac2050c2517e5"
+    },
+    {
+      "path": "inference/input.schema.json",
+      "size": 2897,
+      "sha256": "2d74e3784b0b19399b0d6fcf641c6fe2011c39179df3fda40b554d57877b936c"
+    },
+    {
+      "path": "inference/output.schema.json",
+      "size": 5111,
+      "sha256": "c2133d7a47a19d785917bba98ed1f36cc51094507645befe896aea0615299d7c"
+    },
+    {
+      "path": "inference/examples/synthetic_history.json",
+      "size": 711,
+      "sha256": "8afab7fe27595f272907ef72bfdf9a1bfde00875d53df697e884a73f1b2acb44"
+    },
+    {
+      "path": "inference/model/config.json",
+      "size": 1999,
+      "sha256": "667ec02e4c2a98920a6f9b5ed761c0a13165b2ccef3d633e723476d958665ec6"
+    },
+    {
+      "path": "inference/model/manifest.json",
+      "size": 1462,
+      "sha256": "b17e85940abb5d7a594643e3a2d5765bf89c94d5881a1e379062f5872253d789"
+    },
+    {
+      "path": "inference/model/vocabulary.json",
+      "size": 143113,
+      "sha256": "d983f188e2b344b74d7a0abfd5b53123094ea63ed34f04845f2d3ad17c9c217f"
+    },
+    {
+      "path": "inference/model/model.pt",
+      "size": 5561175,
+      "sha256": "e2e5655c18a1201b6e0e6c1253551ce588573e0a8302b2401fd586fa0c39ffeb"
+    },
+    {
+      "path": "src/model.py",
+      "size": 20822,
+      "sha256": "640a6bbe02840879c9da22916f3e35f82ed6a2750c934f66ef35692a3c25eea7"
+    },
+    {
+      "path": "src/semantic_delphi_ukb/__init__.py",
+      "size": 62,
+      "sha256": "6eb192655d6007a5313afd25480ece6f22d5268ba3d45b30430ac89c6cee48a8"
+    },
+    {
+      "path": "src/semantic_delphi_ukb/modern_model.py",
+      "size": 13883,
+      "sha256": "bcf00033d73e081e2c05ed0e2df74cc4a937c3c05cad74419c02edacbb8f0c8c"
+    },
+    {
+      "path": "src/semantic_delphi_ukb/car_rope_model.py",
+      "size": 35100,
+      "sha256": "52d7d5aec1bd55abcd041f76e193e8f7d1bd55f9edabefb6c0ff87ecddb9c045"
+    },
+    {
+      "path": "src/semantic_delphi_ukb/track_g_generation.py",
+      "size": 8592,
+      "sha256": "9f8402b797c9ded959a29f6ba84c451eaf94bce1b79df21a27e29992586d84c7"
+    },
+    {
+      "path": "src/semantic_delphi_ukb/track_r_contract.py",
+      "size": 14629,
+      "sha256": "a990d69a211fd41999e9e4dc4ea2a16d90d8d4ad5ad89f7870ae085b9d6f77b6"
+    }
+  ]
+}
