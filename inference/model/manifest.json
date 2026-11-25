@@ -1,0 +1,40 @@
+{
+  "format_version": 1,
+  "model_id": "medtrajectory-ukb-a2-seed42-generation-v1",
+  "architecture": "absolute age + additive continuous relative-time attention",
+  "training_seed": 42,
+  "training_stage": "pretraining",
+  "training_iteration": 100000,
+  "omitted_unused_parameters": [
+    "static_encoder.0.bias",
+    "static_encoder.0.weight",
+    "static_encoder.3.bias",
+    "static_encoder.3.weight"
+  ],
+  "source_checkpoint_sha256": "e5676fafb4a4f168e0d9c5cbbfafc2103dc97abd6e0629795786ebd33f3e8a3b",
+  "source_labels_sha256": "905321ddd5c524654e0236d69a86f29693a1f3960662ee139879b68d691054c6",
+  "source_protocol_sha256": "bb477a11ef850f0d190fae8af79605c3e3a686d2549d1f05674da2b895a1ef73",
+  "source_sampler_sha256": "b1e4bd9598824140eaf07f6df97fed5aed3f3ce26615e477de98b3605722606e",
+  "dynamic_context_length": 128,
+  "sampler": {
+    "temperature": 0.8,
+    "top_p": 0.9,
+    "death_logit_bias": 0.0
+  },
+  "minimum_wait_days": 1.0,
+  "files": {
+    "model.pt": {
+      "sha256": "e2e5655c18a1201b6e0e6c1253551ce588573e0a8302b2401fd586fa0c39ffeb",
+      "bytes": 5561175
+    },
+    "config.json": {
+      "sha256": "667ec02e4c2a98920a6f9b5ed761c0a13165b2ccef3d633e723476d958665ec6",
+      "bytes": 1999
+    },
+    "vocabulary.json": {
+      "sha256": "d983f188e2b344b74d7a0abfd5b53123094ea63ed34f04845f2d3ad17c9c217f",
+      "bytes": 143113
+    }
+  },
+  "scope": "Multitype trajectory generation; no calibrated disease or mortality risk endpoint."
+}

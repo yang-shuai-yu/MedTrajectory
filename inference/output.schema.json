@@ -1,0 +1,226 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MedTrajectory output v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "task": {
+      "const": "multitype_trajectory_generation"
+    },
+    "trained_model": {
+      "const": true
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "weights_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "source_checkpoint_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "runtime": {
+      "type": "object",
+      "properties": {
+        "torch": {
+          "type": "string"
+        },
+        "device": {
+          "const": "cpu"
+        }
+      },
+      "required": [
+        "torch",
+        "device"
+      ],
+      "additionalProperties": false
+    },
+    "prediction_origin_age_days": {
+      "type": "number"
+    },
+    "horizon_end_age_days": {
+      "type": "number"
+    },
+    "history_events_received": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "history_events_used": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "history_events_dropped": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "generation": {
+      "type": "object",
+      "properties": {
+        "seed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807,
+          "default": 20260819
+        },
+        "num_trajectories": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20,
+          "default": 1
+        },
+        "max_new_events": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 256,
+          "default": 30
+        },
+        "horizon_days": {
+          "type": "number",
+          "minimum": 1e-06,
+          "maximum": 3652.5,
+          "default": 3652.5
+        }
+      },
+      "required": [
+        "seed",
+        "num_trajectories",
+        "max_new_events",
+        "horizon_days"
+      ],
+      "additionalProperties": false
+    },
+    "sampler": {
+      "type": "object",
+      "properties": {
+        "temperature": {
+          "type": "number"
+        },
+        "top_p": {
+          "type": "number"
+        },
+        "death_logit_bias": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "temperature",
+        "top_p",
+        "death_logit_bias"
+      ],
+      "additionalProperties": false
+    },
+    "trajectories": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "properties": {
+          "trajectory_index": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "token_id": {
+                  "type": "integer",
+                  "minimum": 2,
+                  "maximum": 8423
+                },
+                "event_type": {
+                  "enum": [
+                    "diagnosis",
+                    "procedure",
+                    "cancer",
+                    "death"
+                  ]
+                },
+                "age_days": {
+                  "type": "number"
+                },
+                "age_years": {
+                  "type": "number"
+                },
+                "days_from_origin": {
+                  "type": "number"
+                },
+                "waiting_days": {
+                  "type": "number",
+                  "minimum": 1
+                },
+                "minimum_wait_applied": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "code",
+                "token_id",
+                "event_type",
+                "age_days",
+                "age_years",
+                "days_from_origin",
+                "waiting_days",
+                "minimum_wait_applied"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "event_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "stop_reason": {
+            "enum": [
+              "death",
+              "horizon",
+              "event_limit"
+            ]
+          }
+        },
+        "required": [
+          "trajectory_index",
+          "events",
+          "event_count",
+          "stop_reason"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "task",
+    "trained_model",
+    "model_id",
+    "weights_sha256",
+    "source_checkpoint_sha256",
+    "runtime",
+    "prediction_origin_age_days",
+    "horizon_end_age_days",
+    "history_events_received",
+    "history_events_used",
+    "history_events_dropped",
+    "generation",
+    "sampler",
+    "trajectories",
+    "notes"
+  ],
+  "additionalProperties": false
+}

@@ -49,6 +49,8 @@ patient_rows.jsonl
 *.npy
 *.h5
 *.safetensors
+# Reviewed inference-only state dictionary; all other checkpoints stay excluded.
+!/inference/model/model.pt
 
 # --- secrets / credentials -------------------------------------------------
 .env

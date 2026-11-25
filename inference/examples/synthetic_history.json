@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "static": {
+    "anchor_age_days": 18262.5,
+    "sex": "female",
+    "bmi": "25_to_lt30",
+    "smoking": "never",
+    "alcohol": "once_or_twice_per_week"
+  },
+  "history": [
+    {"code": "diag:I10", "age_days": 18262.5},
+    {"code": "diag:E78", "age_days": 18627.75},
+    {"code": "diag:I10", "age_days": 18993.0},
+    {"code": "diag:E11", "age_days": 19358.25},
+    {"code": "diag:I10", "age_days": 19723.5},
+    {"code": "diag:E78", "age_days": 20088.75},
+    {"code": "diag:E11", "age_days": 20454.0},
+    {"code": "diag:I10", "age_days": 20819.25}
+  ],
+  "generation": {
+    "seed": 20260819,
+    "num_trajectories": 2,
+    "max_new_events": 30,
+    "horizon_days": 3652.5
+  }
+}

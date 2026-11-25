@@ -1,8 +1,9 @@
 # =============================================================================
 # Data access statement
 #
-# This repository contains SOURCE CODE ONLY. No participant-level data, model
-# checkpoints, or prediction dumps are distributed here.
+# The inference/model/ directory includes one reviewed inference-only A2 weight
+# bundle and code vocabulary. Training data and full training checkpoints are
+# not distributed. See inference/README.md for its scope and provenance.
 # =============================================================================
 
 ## 1. Why no data is included
@@ -16,9 +17,15 @@ Apache-2.0 license of this repository does not grant any rights over them.
 | **UK Biobank** | Application to UK Biobank (https://www.ukbiobank.ac.uk/enable-your-research/apply-for-access). Access is granted per approved project and per approved researcher. | All UKB-derived analyses in this work were performed under the project's approved application. |
 | **MIMIC-IV** | Credentialed access via PhysioNet (https://physionet.org/content/mimiciv/). Requires completion of the CITI "Data or Specimens Only Research" training and signing of the data use agreement. | Version used: **MIMIC-IV 3.1**. |
 
-Users must obtain their own access and reconstruct the input files locally. The
+Users reproducing cohort training/evaluation must obtain their own access and reconstruct the input files locally. The
 scripts in this repository expect the datasets to be placed under paths given by
 environment variables (see §4).
+
+The [minimal inference package](../inference/README.md) can run with its included
+trained weights and synthetic example, without cohort access. It adds no patient
+records or patient identifiers. Its vocabulary is a code-to-token mapping, not a
+copy of participant records. Historical demonstration artefacts elsewhere in
+the repository are separate from the new synthetic inference example.
 
 ## 2. Reproducing the input layout
 
@@ -46,9 +53,11 @@ Some artefacts depend on third-party services or models whose own terms apply:
   (https://phewascatalog.org/); see `src/medtrajectory_mimic/mimic_qwen_embed.py`
   for how they are consumed.
 
-Precomputed embedding matrices are **not** distributed here, because they are
-derived from the access-controlled vocabularies. They can be regenerated with
-the scripts above once you have the underlying data.
+Standalone precomputed initialization matrices are **not** distributed here.
+The A2 inference bundle contains its trained token embeddings as model parameters;
+it does not need a separate initialization matrix or an embedding service. For
+training, initialization assets can be regenerated with the scripts above once
+you have the required data access.
 
 ## 4. Expected environment variables
 

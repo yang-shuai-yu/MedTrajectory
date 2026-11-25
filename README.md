@@ -17,6 +17,22 @@ retrains the same architecture on MIMIC-IV with a dataset-specific vocabulary.
 
 ---
 
+## Minimal trained inference
+
+An offline CPU inference package with the trained **UKB A2 / Ours(Relative),
+seed42** weights is available in [inference/](inference/README.md). It accepts
+historical clinical codes, ages in days, and categorical static features as JSON,
+and returns sampled future events with timing and a termination reason. The
+example is synthetic; this interface does not output calibrated disease or
+mortality risks. It needs no training data or embedding API to run.
+
+```bash
+python -m pip install -r inference/requirements.txt
+python inference/predict.py --input inference/examples/synthetic_history.json --output generated.json
+```
+
+---
+
 ## Contents
 
 | Path | What it contains |

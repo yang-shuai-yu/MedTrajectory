@@ -1,0 +1,4 @@
+# CPU wheel used for the validated minimal inference package (Python 3.10+).
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.7.1+cpu
+numpy>=1.26,<3

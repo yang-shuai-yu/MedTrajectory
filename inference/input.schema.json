@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MedTrajectory input v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "static": {
+      "type": "object",
+      "properties": {
+        "anchor_age_days": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 54787.5
+        },
+        "sex": {
+          "type": "string",
+          "enum": [
+            "female",
+            "male",
+            "missing"
+          ]
+        },
+        "bmi": {
+          "type": "string",
+          "enum": [
+            "missing",
+            "lt18.5",
+            "18.5_to_lt25",
+            "25_to_lt30",
+            "gte30"
+          ]
+        },
+        "smoking": {
+          "type": "string",
+          "enum": [
+            "missing",
+            "never",
+            "previous",
+            "current"
+          ]
+        },
+        "alcohol": {
+          "type": "string",
+          "enum": [
+            "missing",
+            "never",
+            "special_occasions",
+            "one_to_three_per_month",
+            "once_or_twice_per_week",
+            "three_or_four_times_per_week",
+            "daily_or_almost_daily"
+          ]
+        }
+      },
+      "required": [
+        "anchor_age_days",
+        "sex",
+        "bmi",
+        "smoking",
+        "alcohol"
+      ],
+      "additionalProperties": false
+    },
+    "history": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 10000,
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "pattern": "^(diag|proc|cancer):.+$",
+            "description": "Must exactly match model/vocabulary.json; no normalization or inference."
+          },
+          "age_days": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 54787.5
+          }
+        },
+        "required": [
+          "code",
+          "age_days"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "generation": {
+      "type": "object",
+      "properties": {
+        "seed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807,
+          "default": 20260819
+        },
+        "num_trajectories": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20,
+          "default": 1
+        },
+        "max_new_events": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 256,
+          "default": 30
+        },
+        "horizon_days": {
+          "type": "number",
+          "minimum": 1e-06,
+          "maximum": 3652.5,
+          "default": 3652.5
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "static",
+    "history"
+  ],
+  "additionalProperties": false
+}
